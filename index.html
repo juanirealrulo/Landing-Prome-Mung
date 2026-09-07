@@ -12,10 +12,51 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- Iconos: Tabler Icons (https://tabler.io/icons) - MIT License, Copyright (c) 2020-2024 Paweł Kuna -->
+<svg class="simbolos" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-gota" viewBox="0 0 24 24">
+      <path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546" />
+    </symbol>
+    <symbol id="i-ciclo" viewBox="0 0 24 24">
+      <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+      <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+    </symbol>
+    <symbol id="i-sembradora" viewBox="0 0 24 24">
+      <path d="M3 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+      <path d="M7 15l0 .01" />
+      <path d="M17 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+      <path d="M10.5 17l6.5 0" />
+      <path d="M20 15.2v-4.2a1 1 0 0 0 -1 -1h-6l-2 -5h-6v6.5" />
+      <path d="M18 5h-1a1 1 0 0 0 -1 1v4" />
+    </symbol>
+    <symbol id="i-raiz" viewBox="0 0 24 24">
+      <path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3" />
+      <path d="M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3" />
+      <path d="M12 20l0 -10" />
+    </symbol>
+    <symbol id="i-grano" viewBox="0 0 24 24">
+      <path d="M3.5 9.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M8.5 4.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M8.5 14.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M3.5 19.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M13.5 9.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M18.5 4.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M13.5 19.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+      <path d="M18.5 14.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+    </symbol>
+    <symbol id="i-renta" viewBox="0 0 24 24">
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+      <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1" />
+      <path d="M12 7v10" />
+    </symbol>
+  </defs>
+</svg>
 
 <div class="progreso" role="presentation"><span id="progreso-barra"></span></div>
 
@@ -41,14 +82,23 @@
       </div>
 
       <h3 class="sub">Lo que hace falta</h3>
-      <dl class="condiciones">
-        <dt>Humedad a la siembra</dt>
-        <dd>Es la condición que no se negocia. Sin humedad al momento de sembrar, no es el cultivo.</dd>
-        <dt>Lugar para un cultivo de verano atrás</dt>
-        <dd>Con 90 días de ciclo el lote se libera a tiempo, si querés aprovecharlo.</dd>
-        <dt>Maquinaria convencional</dt>
-        <dd>No hace falta equipo especial.</dd>
-      </dl>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-gota"></use></svg>
+          <h4>Humedad a la siembra</h4>
+          <p>Es la condición que no se negocia. Sin humedad al momento de sembrar, no es el cultivo.</p>
+        </div>
+        <div class="tarjeta">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-ciclo"></use></svg>
+          <h4>Lugar para un cultivo de verano atrás</h4>
+          <p>Con 90 días de ciclo el lote se libera a tiempo, si querés aprovecharlo.</p>
+        </div>
+        <div class="tarjeta">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sembradora"></use></svg>
+          <h4>Maquinaria convencional</h4>
+          <p>No hace falta equipo especial.</p>
+        </div>
+      </div>
 
       <div class="destacado">
         <h3>El barbecho no sale gratis</h3>
@@ -60,19 +110,28 @@
   <section id="lote" class="seccion seccion--hueso">
     <div class="col">
       <h2>Qué hace el mung en el lote</h2>
-      <dl class="condiciones">
-        <dt>Raíces</dt>
-        <dd>Es una leguminosa y se siembra inoculada. El suelo deja de estar expuesto.</dd>
-        <dt>Granos</dt>
-        <dd>Ciclo de 90 días. Entra en primavera y sale antes de las heladas, sin comprometer el lote para el resto del año.</dd>
-        <dt>Renta</dt>
-        <dd>Un lote que iba a quedar en barbecho termina la campaña con producción para vender.</dd>
-      </dl>
+      <div class="trio">
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-raiz"></use></svg>
+          <h3>Raíces</h3>
+          <p>Es una leguminosa y se siembra inoculada. El suelo deja de estar expuesto.</p>
+        </div>
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-grano"></use></svg>
+          <h3>Granos</h3>
+          <p>Ciclo de 90 días. Entra en primavera y sale antes de las heladas, sin comprometer el lote para el resto del año.</p>
+        </div>
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-renta"></use></svg>
+          <h3>Renta</h3>
+          <p>Un lote que iba a quedar en barbecho termina la campaña con producción para vender.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="modalidad" class="seccion">
-    <div class="col">
+    <div class="col col--angosta">
       <h2>Cómo se trabaja con Prome</h2>
       <p class="lead">En un cultivo de nicho la primera pregunta no es agronómica. Es quién compra la producción.</p>
       <p>Prome compra. Los tres programas van con el compromiso de entregar la producción a Prome, y esa es la contraparte de todo lo que sigue.</p>
@@ -86,8 +145,10 @@
       <p class="lead">Cambian la semilla, la forma de pago y el acompañamiento. El resto es igual en los tres.</p>
 
       <article id="canje" class="programa">
-        <h3>Canje dos por uno</h3>
-        <p class="programa__modo">Sin desembolso en la siembra</p>
+        <header class="programa__cab">
+          <h3>Canje dos por uno</h3>
+          <p class="programa__modo">Sin desembolso en la siembra</p>
+        </header>
         <dl>
           <dt>Qué entrega Prome</dt>
           <dd>La semilla.</dd>
@@ -102,8 +163,10 @@
       </article>
 
       <article id="p40" class="programa">
-        <h3>Programa con seguimiento</h3>
-        <p class="programa__modo">40 dólares por hectárea</p>
+        <header class="programa__cab">
+          <h3>Programa con seguimiento</h3>
+          <p class="programa__modo">40 dólares por hectárea</p>
+        </header>
         <dl>
           <dt>Qué entrega Prome</dt>
           <dd>Semilla, cubresemilla e inoculante.</dd>
@@ -116,8 +179,10 @@
       </article>
 
       <article id="p60" class="programa">
-        <h3>Programa con seguimiento y biológicos</h3>
-        <p class="programa__modo">60 dólares por hectárea</p>
+        <header class="programa__cab">
+          <h3>Programa con seguimiento y biológicos</h3>
+          <p class="programa__modo">60 dólares por hectárea</p>
+        </header>
         <dl>
           <dt>Qué entrega Prome</dt>
           <dd>Semilla, cubresemilla e inoculante, más un activador de germinación y enraizado y un biológico para dos aplicaciones durante el ciclo.</dd>
@@ -132,7 +197,7 @@
   </section>
 
   <section id="contacto" class="seccion seccion--cierre">
-    <div class="col">
+    <div class="col col--angosta">
       <h2>Volvé al chat</h2>
       <p>Si entra en tu planteo, el paso siguiente es contarle a Martín la zona y la superficie que estás pensando. Con eso arma la propuesta.</p>
       <a class="boton" id="cta-final" href="#" data-wa>Seguir por WhatsApp</a>
@@ -144,7 +209,7 @@
 <footer class="pie">
   <div class="col">
     <p>Prome AgroNegocios</p>
-    <p class="pie__lema">Sembrá con estrategia</p>
+    <p class="lema"><b>Sembrá</b> con estrategia</p>
   </div>
 </footer>
 
