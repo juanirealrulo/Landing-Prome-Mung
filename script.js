@@ -5,11 +5,15 @@
   var TELEFONO = '5493700000000';
   var MENSAJE = 'Hola, vi la página del poroto mung y quiero saber si entra en mi planteo.';
 
-  // 1. Armar los enlaces a WhatsApp.
-  var enlace = 'https://wa.me/' + TELEFONO + '?text=' + encodeURIComponent(MENSAJE);
+  // 1. Armar los enlaces a WhatsApp. Los botones con data-plan mandan el
+  //    nombre del programa, así Martín sabe de entrada por cuál preguntan.
   var botones = document.querySelectorAll('[data-wa]');
   for (var i = 0; i < botones.length; i++) {
-    botones[i].setAttribute('href', enlace);
+    var plan = botones[i].getAttribute('data-plan');
+    var texto = plan
+      ? 'Hola, tengo interés en el ' + plan + ' de poroto mung.'
+      : MENSAJE;
+    botones[i].setAttribute('href', 'https://wa.me/' + TELEFONO + '?text=' + encodeURIComponent(texto));
     botones[i].setAttribute('rel', 'noopener');
   }
 
