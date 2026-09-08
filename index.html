@@ -64,6 +64,7 @@
   <div class="col">
     <p class="marca">Prome AgroNegocios<span>Cultivos especiales</span></p>
     <h1>Poroto mung,<br>siembra de primavera</h1>
+    <p class="marcador" data-rot="Foto de fondo pendiente" data-med="apaisada · 1600 × 900 · WebP · máx 150 KB"></p>
     <p class="bajada">Un lote vacío se puede transformar en raíces, granos y renta. Acá está cuándo eso entra en tu planteo y cuándo no.</p>
   </div>
 </header>
@@ -82,7 +83,7 @@
         <div class="tarjeta">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-ciclo"></use></svg>
           <h4>Lugar para un cultivo de verano atrás</h4>
-          <p>Con 90 días de ciclo el lote se libera a tiempo, si querés aprovecharlo.</p>
+          <p>El lote se libera a tiempo para sembrar un cultivo de verano detrás, si querés aprovecharlo.</p>
         </div>
         <div class="tarjeta">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sembradora"></use></svg>
@@ -96,7 +97,7 @@
           <h3>El barbecho no sale gratis</h3>
           <p>Un lote vacío se cubre de malezas y ese control cuesta plata igual. El mung cierra el surco en 20 días, así que compite él. El control queda dentro del costo del cultivo y el lote además produce.</p>
         </div>
-        <div class="foto foto--barbecho" role="presentation"></div>
+        <div class="foto foto--barbecho" data-rot="Lote sin asignar, cubierto de malezas" data-med="vertical · 840 × 1120 · WebP"></div>
       </div>
     </div>
   </section>
@@ -137,7 +138,7 @@
         </div>
         <p class="ciclo__nota">Sale a tiempo para que el cultivo de verano entre en fecha. El lote hace dos campañas en lugar de una.</p>
       </figure>
-        <div class="foto foto--lote" role="presentation"></div>
+        <div class="foto foto--lote" data-rot="Cultivo implantado, surco cerrado" data-med="vertical · 840 × 1120 · WebP"></div>
       </div>
     </div>
   </section>
@@ -160,15 +161,20 @@
       <article id="canje" class="programa programa--destacado">
         <header class="programa__cab">
           <h3>Canje dos por uno</h3>
-          <p class="programa__modo">Sin desembolso en la siembra</p>
+          <p class="programa__precio">2 × 1</p>
+          <p class="programa__unidad">Sin desembolso en la siembra</p>
         </header>
         <dl>
           <dt>Qué entrega Prome</dt>
-          <dd>La semilla.</dd>
+          <dd>
+            <ul class="lista">
+              <li>Semilla</li>
+            </ul>
+          </dd>
           <dt>Cómo se paga</dt>
           <dd>A cosecha devolvés dos kilos por cada kilo de semilla recibido. Sobre una referencia de 25 kg por hectárea, son 50 kg de producto terminado. La devolución se mide sobre grano limpio, así que la entrega real es algo mayor. Es un compromiso de devolución, no una entrega opcional.</dd>
           <dt>Acompañamiento</dt>
-          <dd>No incluye.</dd>
+          <dd class="dd--vacio">No incluye.</dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>
@@ -179,15 +185,28 @@
       <article id="p40" class="programa">
         <header class="programa__cab">
           <h3>Programa con seguimiento</h3>
-          <p class="programa__modo">40 dólares por hectárea</p>
+          <p class="programa__precio">USD 40</p>
+          <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
           <dt>Qué entrega Prome</dt>
-          <dd>Semilla, cubresemilla e inoculante.</dd>
+          <dd>
+            <ul class="lista">
+              <li>Semilla</li>
+              <li>Cubresemilla</li>
+              <li>Inoculante</li>
+            </ul>
+          </dd>
           <dt>Cómo se paga</dt>
           <dd>40 dólares por hectárea.</dd>
           <dt>Acompañamiento</dt>
-          <dd>Grupo de WhatsApp con el cultivo y la fecha de siembra cargados en un calendario, con avisos en cada etapa del cultivo. Incluye alguna visita técnica.</dd>
+          <dd>
+            <ul class="lista">
+              <li>Grupo de WhatsApp con el cultivo y la fecha de siembra cargados en un calendario</li>
+              <li>Avisos en cada etapa del cultivo</li>
+              <li>Alguna visita técnica</li>
+            </ul>
+          </dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>
@@ -198,15 +217,28 @@
       <article id="p60" class="programa">
         <header class="programa__cab">
           <h3>Programa con seguimiento y biológicos</h3>
-          <p class="programa__modo">60 dólares por hectárea</p>
+          <p class="programa__precio">USD 60</p>
+          <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
           <dt>Qué entrega Prome</dt>
-          <dd>Semilla, cubresemilla e inoculante, más un activador de germinación y enraizado y un biológico para dos aplicaciones durante el ciclo.</dd>
+          <dd>
+            <ul class="lista">
+              <li class="lista__hereda">Todo lo del programa con seguimiento</li>
+              <li>Activador de germinación y enraizado</li>
+              <li>Biológico para dos aplicaciones durante el ciclo</li>
+            </ul>
+          </dd>
           <dt>Cómo se paga</dt>
           <dd>60 dólares por hectárea.</dd>
           <dt>Acompañamiento</dt>
-          <dd>Seguimiento técnico más cercano, con visita y una mirada sobre el manejo de toda la campaña.</dd>
+          <dd>
+            <ul class="lista">
+              <li class="lista__hereda">Todo lo del programa con seguimiento</li>
+              <li>Seguimiento técnico más cercano, con visita</li>
+              <li>Mirada sobre el manejo de toda la campaña</li>
+            </ul>
+          </dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>

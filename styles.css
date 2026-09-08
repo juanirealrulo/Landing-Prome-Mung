@@ -149,6 +149,56 @@ h3{
 .par{display:grid;gap:2rem;}
 .foto{display:none;}
 
+/* Placeholder. Se apaga solo: al poner la imagen, borrá los atributos
+   data-rot y data-med del HTML y el bloque punteado desaparece. */
+.foto[data-rot]{
+  border:2px dashed rgba(48,121,47,.5);
+  background-color:rgba(48,121,47,.06);
+  align-content:center;
+  text-align:center;
+  padding:1.5rem 1.25rem;
+}
+.foto[data-rot]::before{
+  content:attr(data-rot);
+  display:block;
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:.9375rem;
+  line-height:1.4;
+  color:var(--verde);
+}
+.foto[data-rot]::after{
+  content:attr(data-med);
+  display:block;
+  margin-top:.5rem;
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:.8125rem;
+  color:rgba(29,35,28,.6);
+}
+
+.marcador{
+  display:inline-block;
+  border:1px dashed rgba(255,255,255,.55);
+  padding:.5rem .75rem;
+  margin:0 0 1.5rem;
+  text-align:left;
+}
+.marcador::before{
+  content:attr(data-rot);
+  display:block;
+  font-weight:700;
+  font-size:.8125rem;
+  color:var(--blanco);
+}
+.marcador::after{
+  content:attr(data-med);
+  display:block;
+  font-weight:300;
+  font-size:.75rem;
+  opacity:.8;
+}
+
 /* ---------- Gráfico del ciclo ---------- */
 .ciclo{margin:2.75rem 0 0;max-width:var(--medida);}
 .ciclo figcaption{
@@ -263,12 +313,25 @@ h3{
   margin-bottom:1.125rem;
   border-bottom:1px solid rgba(29,35,28,.22);
 }
-.programa h3{color:var(--negro);margin:0 0 .25rem;}
-.programa__modo{
+.programa h3{
+  color:var(--negro);
+  font-size:1.0625rem;
+  line-height:1.3;
+  margin:0 0 .625rem;
+}
+.programa__precio{
   font-family:var(--sans);
   font-weight:800;
-  font-size:.9375rem;
+  font-size:2rem;
+  line-height:1;
   color:var(--verde);
+  margin:0 0 .1875rem;
+}
+.programa--destacado .programa__precio{color:var(--verde-vivo);}
+.programa__unidad{
+  font-size:.8125rem;
+  font-weight:300;
+  color:rgba(29,35,28,.7);
   margin:0;
 }
 .programa dl{margin:0;flex:1 1 auto;}
@@ -285,6 +348,29 @@ h3{
   line-height:1.55;
   color:var(--negro);
 }
+.dd--vacio{color:rgba(29,35,28,.55);}
+
+/* Listas: marcador cuadrado, sin viñeta del navegador */
+.lista{list-style:none;margin:0;padding:0;}
+.lista li{
+  position:relative;
+  padding-left:1.0625rem;
+  margin-bottom:.4375rem;
+  line-height:1.45;
+}
+.lista li:last-child{margin-bottom:0;}
+.lista li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.55em;
+  width:.375rem;
+  height:.375rem;
+  background:var(--verde);
+}
+/* Lo que el plan hereda del anterior, para no repetir la lista entera */
+.lista__hereda{font-weight:700;}
+.lista__hereda::before{background:var(--verde-vivo);}
 .programa__pie{
   margin-top:auto;
   padding-top:1rem;
@@ -398,7 +484,7 @@ h3{
   .par{grid-template-columns:minmax(0,1fr) 21rem;gap:2.5rem;align-items:stretch;}
   .foto{
     display:block;
-    min-height:14rem;
+    min-height:16rem;
     background-color:var(--verde);
     background-size:cover;
     background-position:center;
