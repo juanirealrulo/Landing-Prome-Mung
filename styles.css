@@ -69,7 +69,14 @@ p:last-child{margin-bottom:0;}
 
 /* ---------- Portada ---------- */
 .portada{
-  background:var(--verde);
+  /* La imagen va detrás del velo verde, así que no cambia el alto de la
+     banda en ningún tamaño. Descomentá la segunda capa y poné la ruta.
+     Presupuesto sugerido: WebP por debajo de 150 KB, por la conectividad rural. */
+  background-color:var(--verde);
+  background-image:linear-gradient(rgba(48,121,47,.9), rgba(48,121,47,.94));
+  /* background-image:linear-gradient(rgba(48,121,47,.9), rgba(48,121,47,.94)), url("img/portada.webp"); */
+  background-size:cover;
+  background-position:center;
   color:var(--blanco);
   padding:3.25rem 0 3rem;
 }
@@ -106,7 +113,6 @@ p:last-child{margin-bottom:0;}
 /* ---------- Secciones ---------- */
 .seccion{padding:3.25rem 0;}
 .seccion--hueso{background:var(--hueso);}
-.seccion--oscura{background:var(--negro);color:var(--hueso);}
 .seccion--cierre{background:var(--verde);color:var(--blanco);}
 
 h2{
@@ -117,7 +123,6 @@ h2{
   margin:0 0 1.5rem;
   color:var(--verde);
 }
-.seccion--oscura h2,
 .seccion--cierre h2{color:var(--blanco);}
 
 h3{
@@ -135,28 +140,58 @@ h3{
   margin:0 0 1.75rem;
   max-width:40ch;
 }
-.seccion--oscura .lead{color:var(--blanco);}
 
-/* ---------- Bloque de situación ---------- */
-.situacion{
-  max-width:var(--medida);
-  border-left:4px solid var(--verde);
-  padding:.125rem 0 .125rem 1.125rem;
-  margin:0 0 2.75rem;
-}
-.situacion h3{color:var(--verde);font-size:1.375rem;}
-.apunte{
-  font-size:.9375rem;
-  font-weight:300;
-  color:rgba(29,35,28,.72);
-}
+/* ---------- Espacios de imagen ---------- */
+/* En celular la foto no se renderiza NI se descarga: el background-image
+   solo se declara dentro del media query de escritorio. Así la página no
+   crece de alto en el teléfono ni gasta datos en el campo.
+   Para cargar una imagen, poné la ruta en el bloque de 60rem de más abajo. */
+.par{display:grid;gap:2rem;}
+.foto{display:none;}
 
-.sub{
+/* ---------- Gráfico del ciclo ---------- */
+.ciclo{margin:2.75rem 0 0;max-width:var(--medida);}
+.ciclo figcaption{
   font-family:var(--sans);
   font-weight:800;
   font-size:.9375rem;
   color:var(--verde);
   margin:0 0 1rem;
+}
+.ciclo__linea{display:flex;align-items:stretch;gap:3px;}
+.ciclo__tramo{
+  flex:1 1 auto;
+  background:var(--verde);
+  color:var(--blanco);
+  padding:.875rem 1rem;
+}
+.ciclo__hito{
+  flex:0 0 auto;
+  max-width:9rem;
+  background:rgba(29,35,28,.1);
+  border-left:4px solid var(--verde-vivo);
+  color:var(--negro);
+  padding:.875rem 1rem;
+}
+.ciclo__etiq{
+  display:block;
+  font-size:.8125rem;
+  font-weight:300;
+  opacity:.85;
+  margin-bottom:.125rem;
+}
+.ciclo__dato{
+  display:block;
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:1rem;
+  line-height:1.25;
+}
+.ciclo__nota{
+  font-size:.875rem;
+  font-weight:300;
+  color:rgba(29,35,28,.72);
+  margin:1rem 0 0;
 }
 
 /* ---------- Tarjetas de condiciones ---------- */
@@ -333,6 +368,11 @@ h3{
 .lema b{font-weight:800;color:var(--verde-vivo);}
 
 /* ---------- Pantallas grandes ---------- */
+@media (max-width:29.99rem){
+  .ciclo__linea{flex-direction:column;}
+  .ciclo__hito{max-width:none;border-left:0;border-top:4px solid var(--verde-vivo);}
+}
+
 @media (min-width:40rem){
   .tarjetas{grid-template-columns:repeat(3,1fr);gap:1rem;}
   .trio{grid-template-columns:repeat(3,1fr);gap:1.75rem;}
@@ -348,12 +388,27 @@ h3{
   .bajada{font-size:1.1875rem;max-width:40ch;}
   .seccion{padding:5rem 0;}
   h2{font-size:2.125rem;}
-  .situacion h3{font-size:1.625rem;}
   .destacado{padding:2rem 2.25rem;}
   .trio{gap:2.5rem;}
 }
 
 @media (min-width:60rem){
+  /* La foto ocupa la franja que el texto ya dejaba libre, así que no
+     agrega scroll. Reemplazá el color por url("img/archivo.webp"). */
+  .par{grid-template-columns:minmax(0,1fr) 21rem;gap:2.5rem;align-items:stretch;}
+  .foto{
+    display:block;
+    min-height:14rem;
+    background-color:var(--verde);
+    background-size:cover;
+    background-position:center;
+  }
+  .foto--barbecho{/* background-image:url("img/barbecho.webp"); */}
+  .foto--lote{/* background-image:url("img/lote.webp"); */}
+
+  .ciclo__tramo,.ciclo__hito{padding:1.125rem 1.375rem;}
+  .ciclo__hito{max-width:11rem;}
+  .ciclo__dato{font-size:1.0625rem;}
   .comparador{grid-template-columns:repeat(3,1fr);gap:1.5rem;}
   .programa{padding:1.875rem 1.625rem 1.625rem;}
   .tarjetas{gap:1.5rem;}
