@@ -6,7 +6,8 @@
   --blanco:#ffffff;
   --serif:"Libre Baskerville", Georgia, serif;
   --sans:"Almarai", system-ui, -apple-system, sans-serif;
-  --ancho:44rem;
+  --ancho:70rem;
+  --medida:44rem;
   --barra-alto:4.75rem;
 }
 
@@ -33,7 +34,7 @@ p:last-child{margin-bottom:0;}
   margin:0 auto;
   padding:0 1.375rem;
 }
-.col--angosta{max-width:36rem;}
+.col--angosta{max-width:46rem;}
 
 /* ---------- Íconos: Tabler Icons, MIT ---------- */
 /* Tile verde con trazo blanco, según el manual de estilo */
@@ -128,6 +129,7 @@ h3{
 }
 
 .lead{
+  max-width:42ch;
   font-size:1.125rem;
   line-height:1.55;
   margin:0 0 1.75rem;
@@ -137,6 +139,7 @@ h3{
 
 /* ---------- Bloque de situación ---------- */
 .situacion{
+  max-width:var(--medida);
   border-left:4px solid var(--verde);
   padding:.125rem 0 .125rem 1.125rem;
   margin:0 0 2.75rem;
@@ -184,6 +187,7 @@ h3{
 
 /* ---------- Destacado ---------- */
 .destacado{
+  max-width:var(--medida);
   margin:2.5rem 0 0;
   padding:1.625rem 1.375rem;
   background:var(--negro);
@@ -203,31 +207,40 @@ h3{
 .trio__item h3{color:var(--verde);margin-bottom:.375rem;}
 .trio__item p{font-weight:300;margin:0;max-width:44ch;}
 
-/* ---------- Tarjetas de programa ---------- */
+/* ---------- Comparador de programas ---------- */
+.seccion--comparador{background:var(--negro);color:var(--hueso);}
+.seccion--comparador h2{color:var(--blanco);}
+.seccion--comparador .lead{color:var(--hueso);}
+
+.comparador{display:grid;gap:1.125rem;align-items:stretch;}
+
 .programa{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(76,175,80,.4);
+  display:flex;
+  flex-direction:column;
+  background:var(--hueso);
+  color:var(--negro);
+  border-top:6px solid var(--verde);
   padding:1.5rem 1.25rem 1.375rem;
-  margin:0 0 1.125rem;
 }
-.programa:last-of-type{margin-bottom:0;}
+.programa--destacado{border-top-color:var(--verde-vivo);}
 .programa__cab{
   padding-bottom:1rem;
   margin-bottom:1.125rem;
-  border-bottom:1px solid rgba(76,175,80,.35);
+  border-bottom:1px solid rgba(29,35,28,.22);
 }
-.programa h3{color:var(--blanco);margin:0 0 .25rem;}
+.programa h3{color:var(--negro);margin:0 0 .25rem;}
 .programa__modo{
-  font-weight:700;
+  font-family:var(--sans);
+  font-weight:800;
   font-size:.9375rem;
-  color:var(--verde-vivo);
+  color:var(--verde);
   margin:0;
 }
-.programa dl{margin:0;}
+.programa dl{margin:0;flex:1 1 auto;}
 .programa dt{
   font-size:.8125rem;
   font-weight:700;
-  color:var(--verde-vivo);
+  color:var(--verde);
   margin:0 0 .1875rem;
 }
 .programa dd{
@@ -235,15 +248,18 @@ h3{
   font-weight:300;
   font-size:.9375rem;
   line-height:1.55;
-  color:var(--hueso);
+  color:var(--negro);
 }
 .programa__pie{
-  margin:.25rem 0 0;
-  padding-top:.875rem;
-  border-top:1px solid rgba(225,223,217,.2);
+  margin-top:auto;
+  padding-top:1rem;
+  border-top:1px solid rgba(29,35,28,.22);
+}
+.programa__pie p{
   font-size:.8125rem;
   font-weight:300;
-  color:rgba(225,223,217,.7);
+  color:rgba(29,35,28,.7);
+  margin:0 0 .875rem;
 }
 
 /* ---------- Botones ---------- */
@@ -260,6 +276,16 @@ h3{
   border:2px solid var(--negro);
 }
 .seccion--cierre .boton{margin-top:1.5rem;}
+.boton--plan{
+  display:block;
+  width:100%;
+  text-align:center;
+  font-size:.9375rem;
+  padding:.9375rem 1rem;
+  background:var(--verde);
+  border-color:var(--verde);
+}
+.boton--plan:focus-visible{outline-color:var(--negro);}
 .boton:focus-visible{outline:3px solid var(--blanco);outline-offset:3px;}
 
 /* ---------- Barra fija ---------- */
@@ -316,11 +342,22 @@ h3{
 
 @media (min-width:48rem){
   body{font-size:1.125rem;}
-  .portada{padding:4.5rem 0 4rem;}
-  .portada h1{font-size:2.875rem;}
-  .seccion{padding:4.5rem 0;}
-  h2{font-size:2rem;}
-  .programa{padding:1.875rem 1.75rem 1.625rem;}
+  .col{padding:0 2.5rem;}
+  .portada{padding:5rem 0 4.5rem;}
+  .portada h1{font-size:3.25rem;}
+  .bajada{font-size:1.1875rem;max-width:40ch;}
+  .seccion{padding:5rem 0;}
+  h2{font-size:2.125rem;}
+  .situacion h3{font-size:1.625rem;}
+  .destacado{padding:2rem 2.25rem;}
+  .trio{gap:2.5rem;}
+}
+
+@media (min-width:60rem){
+  .comparador{grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .programa{padding:1.875rem 1.625rem 1.625rem;}
+  .tarjetas{gap:1.5rem;}
+  .seccion{padding:5.5rem 0;}
 }
 
 @media (prefers-reduced-motion:reduce){
