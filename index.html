@@ -59,6 +59,19 @@
       <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1" />
       <path d="M12 7v10" />
     </symbol>
+    <symbol id="i-paquete" viewBox="0 0 24 24">
+      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+      <path d="M12 12l8 -4.5" />
+      <path d="M12 12l0 9" />
+      <path d="M12 12l-8 -4.5" />
+      <path d="M16 5.25l-8 4.5" />
+    </symbol>
+    <symbol id="i-camion" viewBox="0 0 24 24">
+      <path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+      <path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+      <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+      <path d="M3 9l4 0" />
+    </symbol>
   </defs>
 </svg>
 
@@ -142,8 +155,8 @@
       </div>
 
       <div class="destacado">
-        <h3>El control de malezas lo pagás igual</h3>
-        <p>En un lote parado ese gasto no rinde. Con el mung el surco cierra en 20 días y el cultivo compite solo. El mismo gasto, pero dentro de una campaña que da grano.</p>
+        <h3>El lote parado también cuesta</h3>
+        <p>Las malezas hay que controlarlas igual, y en un lote parado ese gasto no rinde. Con el mung el surco cierra en 20 días y el cultivo compite solo. El mismo gasto, pero dentro de una campaña que da grano.</p>
       </div>
         </div>
         <div class="foto foto--barbecho" role="presentation"></div>
@@ -152,11 +165,26 @@
   </section>
 
   <section id="modalidad" class="seccion">
-    <div class="col col--angosta">
-      <h2>Cómo se trabaja con Prome</h2>
+    <div class="col">
+      <h2>Cómo trabajamos</h2>
       <p class="lead">En un cultivo de nicho la primera pregunta no es agronómica. Es quién compra la producción.</p>
-      <p>Prome compra. Los tres programas incluyen el compromiso de entregarle la producción.</p>
-      <p>Además de la semilla, Prome acompaña el manejo durante la campaña y la comercialización.</p>
+      <ol class="flujo">
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-paquete"></use></svg>
+          <h3>Ponemos la semilla</h3>
+          <p>Y según el programa, el acompañamiento.</p>
+        </li>
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sembradora"></use></svg>
+          <h3>Vos sembrás y cosechás</h3>
+          <p>En tu lote, con tu maquinaria.</p>
+        </li>
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-camion"></use></svg>
+          <h3>Compramos el grano</h3>
+          <p>Nos entregás la producción. Es el compromiso de los tres programas.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -173,26 +201,19 @@
           <p class="programa__unidad">Sin desembolso en la siembra</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
+          <dt>Qué ponemos</dt>
           <dd>
             <ul class="lista">
               <li>Semilla</li>
             </ul>
           </dd>
           <dt>Cómo se paga</dt>
-          <dd>
-            <ul class="lista">
-              <li>A cosecha devolvés 2 kg de grano por cada kilo de semilla</li>
-              <li>Referencia de 25 kg/ha de semilla, 50 kg/ha de devolución</li>
-              <li>Se mide sobre grano limpio, así que la entrega real es algo mayor</li>
-              <li>Es un compromiso, no una opción</li>
-            </ul>
-          </dd>
+          <dd>A cosecha devolvés dos kilos por cada kilo de semilla recibido. Sobre una referencia de 25 kg por hectárea, son 50 kg de producto terminado. La devolución se mide sobre grano limpio, así que la entrega real es algo mayor. Es un compromiso de devolución, no una entrega opcional.</dd>
           <dt>Acompañamiento</dt>
           <dd class="dd--vacio">No incluye.</dd>
         </dl>
         <footer class="programa__pie">
-          <p>La producción se entrega a Prome.</p>
+          <p>Nos entregás la producción.</p>
           <a class="boton boton--plan" href="#" data-wa data-plan="canje dos por uno">Me interesa este plan</a>
         </footer>
       </article>
@@ -204,7 +225,7 @@
           <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
+          <dt>Qué ponemos</dt>
           <dd>
             <ul class="lista">
               <li>Semilla</li>
@@ -222,7 +243,7 @@
           </dd>
         </dl>
         <footer class="programa__pie">
-          <p>La producción se entrega a Prome.</p>
+          <p>Nos entregás la producción.</p>
           <a class="boton boton--plan" href="#" data-wa data-plan="programa con seguimiento">Me interesa este plan</a>
         </footer>
       </article>
@@ -234,7 +255,7 @@
           <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
+          <dt>Qué ponemos</dt>
           <dd>
             <ul class="lista">
               <li class="lista__hereda">Todo lo del programa con seguimiento</li>
@@ -252,7 +273,7 @@
           </dd>
         </dl>
         <footer class="programa__pie">
-          <p>La producción se entrega a Prome.</p>
+          <p>Nos entregás la producción.</p>
           <a class="boton boton--plan" href="#" data-wa data-plan="programa con seguimiento y biológicos">Me interesa este plan</a>
         </footer>
       </article>
@@ -263,7 +284,7 @@
   <section id="contacto" class="seccion seccion--cierre">
     <div class="col col--angosta">
       <h2>Volvé al chat</h2>
-      <p>Contale a Martín la zona y la superficie. Con eso arma la propuesta.</p>
+      <p>Contanos la zona y la superficie. Con eso armamos la propuesta.</p>
       <a class="boton" id="cta-final" href="#" data-wa>Seguir por WhatsApp</a>
     </div>
   </section>
@@ -278,7 +299,7 @@
 </footer>
 
 <div class="barra" id="barra">
-  <a class="boton boton--barra" href="#" data-wa>Preguntale a Martín</a>
+  <a class="boton boton--barra" href="#" data-wa>Escribinos</a>
 </div>
 
 <script src="script.js"></script>
