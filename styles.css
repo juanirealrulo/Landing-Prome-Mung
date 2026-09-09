@@ -69,12 +69,14 @@ p:last-child{margin-bottom:0;}
 
 /* ---------- Portada ---------- */
 .portada{
-  /* La imagen va detrás del velo verde, así que no cambia el alto de la
-     banda en ningún tamaño. Descomentá la segunda capa y poné la ruta.
-     Presupuesto sugerido: WebP por debajo de 150 KB, por la conectividad rural. */
+  /* Fondo: img/portada.webp. Va detrás del velo verde, así que no cambia
+     el alto de la banda en ningún tamaño. Si el archivo no existe todavía,
+     el navegador cae al color y la banda se ve igual de bien.
+     El velo va al 84%: es el valor más bajo que deja el texto chico por
+     encima de 4.5:1 de contraste sobre el píxel más claro de la foto.
+     Bajarlo muestra más la imagen pero incumple AA. */
   background-color:var(--verde);
-  background-image:linear-gradient(rgba(48,121,47,.9), rgba(48,121,47,.94));
-  /* background-image:linear-gradient(rgba(48,121,47,.9), rgba(48,121,47,.94)), url("img/portada.webp"); */
+  background-image:linear-gradient(rgba(48,121,47,.84), rgba(48,121,47,.84)), url("img/portada.webp");
   background-size:cover;
   background-position:center;
   color:var(--blanco);
@@ -149,55 +151,6 @@ h3{
 .par{display:grid;gap:2rem;}
 .foto{display:none;}
 
-/* Placeholder. Se apaga solo: al poner la imagen, borrá los atributos
-   data-rot y data-med del HTML y el bloque punteado desaparece. */
-.foto[data-rot]{
-  border:2px dashed rgba(48,121,47,.5);
-  background-color:rgba(48,121,47,.06);
-  align-content:center;
-  text-align:center;
-  padding:1.5rem 1.25rem;
-}
-.foto[data-rot]::before{
-  content:attr(data-rot);
-  display:block;
-  font-family:var(--sans);
-  font-weight:700;
-  font-size:.9375rem;
-  line-height:1.4;
-  color:var(--verde);
-}
-.foto[data-rot]::after{
-  content:attr(data-med);
-  display:block;
-  margin-top:.5rem;
-  font-family:var(--sans);
-  font-weight:300;
-  font-size:.8125rem;
-  color:rgba(29,35,28,.6);
-}
-
-.marcador{
-  display:inline-block;
-  border:1px dashed rgba(255,255,255,.55);
-  padding:.5rem .75rem;
-  margin:0 0 1.5rem;
-  text-align:left;
-}
-.marcador::before{
-  content:attr(data-rot);
-  display:block;
-  font-weight:700;
-  font-size:.8125rem;
-  color:var(--blanco);
-}
-.marcador::after{
-  content:attr(data-med);
-  display:block;
-  font-weight:300;
-  font-size:.75rem;
-  opacity:.8;
-}
 
 /* ---------- Gráfico del ciclo ---------- */
 .ciclo{margin:2.75rem 0 0;max-width:var(--medida);}
@@ -480,7 +433,8 @@ h3{
 
 @media (min-width:60rem){
   /* La foto ocupa la franja que el texto ya dejaba libre, así que no
-     agrega scroll. Reemplazá el color por url("img/archivo.webp"). */
+     agrega scroll. Las rutas ya están puestas: alcanza con dejar el
+     archivo en img/ y borrar los data-rot y data-med del HTML. */
   .par{grid-template-columns:minmax(0,1fr) 21rem;gap:2.5rem;align-items:stretch;}
   .foto{
     display:block;
@@ -489,8 +443,8 @@ h3{
     background-size:cover;
     background-position:center;
   }
-  .foto--barbecho{/* background-image:url("img/barbecho.webp"); */}
-  .foto--lote{/* background-image:url("img/lote.webp"); */}
+  .foto--barbecho{background-image:url("img/lote-sin-asignar.webp");}
+  .foto--lote{background-image:url("img/cultivo-implantado.webp");}
 
   .ciclo__tramo,.ciclo__hito{padding:1.125rem 1.375rem;}
   .ciclo__hito{max-width:11rem;}
