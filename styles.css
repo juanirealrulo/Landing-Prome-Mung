@@ -356,6 +356,12 @@ h3{
   border:2px solid var(--negro);
 }
 .seccion--cierre .boton{margin-top:1.5rem;}
+.portada .boton{margin-top:1.75rem;}
+.boton--claro{
+  background:var(--hueso);
+  border-color:var(--hueso);
+  color:var(--negro);
+}
 .boton--plan{
   display:block;
   width:100%;
