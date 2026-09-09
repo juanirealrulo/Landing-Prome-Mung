@@ -21,7 +21,6 @@ body{
   line-height:1.62;
   color:var(--negro);
   background:var(--blanco);
-  padding-bottom:calc(var(--barra-alto) + env(safe-area-inset-bottom));
 }
 
 p{margin:0 0 1rem;}
@@ -69,7 +68,16 @@ p:last-child{margin-bottom:0;}
 
 /* ---------- Portada ---------- */
 .portada{
-  background:var(--verde);
+  /* Fondo: img/portada.webp. Va detrás del velo verde, así que no cambia
+     el alto de la banda en ningún tamaño. Si el archivo no existe todavía,
+     el navegador cae al color y la banda se ve igual de bien.
+     El velo va al 84%: es el valor más bajo que deja el texto chico por
+     encima de 4.5:1 de contraste sobre el píxel más claro de la foto.
+     Bajarlo muestra más la imagen pero incumple AA. */
+  background-color:var(--verde);
+  background-image:linear-gradient(rgba(48,121,47,.84), rgba(48,121,47,.84)), url("img/portada.webp");
+  background-size:cover;
+  background-position:center;
   color:var(--blanco);
   padding:3.25rem 0 3rem;
 }
@@ -106,8 +114,14 @@ p:last-child{margin-bottom:0;}
 /* ---------- Secciones ---------- */
 .seccion{padding:3.25rem 0;}
 .seccion--hueso{background:var(--hueso);}
-.seccion--oscura{background:var(--negro);color:var(--hueso);}
-.seccion--cierre{background:var(--verde);color:var(--blanco);}
+.seccion--cierre{
+  background:var(--verde);
+  color:var(--blanco);
+  text-align:center;
+}
+.seccion--cierre .col{max-width:34rem;}
+.seccion--cierre h2{font-size:2.25rem;margin-bottom:1.25rem;}
+.seccion--cierre p{margin-left:auto;margin-right:auto;max-width:40ch;}
 
 h2{
   font-family:var(--serif);
@@ -117,7 +131,6 @@ h2{
   margin:0 0 1.5rem;
   color:var(--verde);
 }
-.seccion--oscura h2,
 .seccion--cierre h2{color:var(--blanco);}
 
 h3{
@@ -135,7 +148,6 @@ h3{
   margin:0 0 1.75rem;
   max-width:40ch;
 }
-.seccion--oscura .lead{color:var(--blanco);}
 
 /* ---------- Bloque de situación ---------- */
 .situacion{
@@ -151,12 +163,94 @@ h3{
   color:rgba(29,35,28,.72);
 }
 
-.sub{
+/* ---------- Gráfico del ciclo ---------- */
+.ciclo{margin:0;max-width:var(--medida);}
+.ciclo figcaption{
   font-family:var(--sans);
   font-weight:800;
   font-size:.9375rem;
   color:var(--verde);
   margin:0 0 1rem;
+}
+.ciclo__linea{display:flex;align-items:stretch;gap:3px;}
+.ciclo__tramo{
+  flex:1 1 auto;
+  background:var(--verde);
+  color:var(--blanco);
+  padding:.875rem 1rem;
+}
+.ciclo__hito{
+  flex:0 0 auto;
+  max-width:9rem;
+  background:rgba(29,35,28,.1);
+  border-left:4px solid var(--verde-vivo);
+  color:var(--negro);
+  padding:.875rem 1rem;
+}
+.ciclo__etiq{
+  display:block;
+  font-size:.8125rem;
+  font-weight:300;
+  opacity:.85;
+  margin-bottom:.125rem;
+}
+.ciclo__dato{
+  display:block;
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:1rem;
+  line-height:1.25;
+}
+.ciclo__nota{
+  font-size:.875rem;
+  font-weight:300;
+  color:rgba(29,35,28,.72);
+  margin:1rem 0 0;
+}
+
+/* ---------- Ícono + título en fila (solo pantallas chicas) ----------
+   Abajo de 40rem los ítems van apilados y el tile quedaba solo en su
+   renglón con todo el ancho vacío a la derecha. Acá el título sube al
+   lado del ícono y el texto corre debajo a todo el ancho. */
+.trio__item,
+.tarjeta,
+.flujo__paso{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  column-gap:1rem;
+  align-items:center;
+}
+.trio__item .ico,
+.tarjeta .ico,
+.flujo__paso .ico{grid-column:1;grid-row:1;margin:0;}
+.trio__item h3,
+.tarjeta h3,
+.flujo__paso h3{grid-column:2;grid-row:1;margin:0;}
+.trio__item p,
+.tarjeta p,
+.flujo__paso p{grid-column:1 / -1;margin:.75rem 0 0;}
+
+/* ---------- Esquema de tres pasos ---------- */
+.flujo{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:2rem;
+}
+.flujo__paso{position:relative;}
+.flujo__paso .ico{margin:0 0 .875rem;}
+.flujo__paso h3{color:var(--verde);margin:0 0 .375rem;}
+.flujo__paso p{font-weight:300;margin:0;max-width:30ch;}
+/* En vertical, una línea une el tile de un paso con el siguiente */
+.flujo__paso + .flujo__paso::before{
+  content:"";
+  position:absolute;
+  left:calc(1.375rem - 1px);
+  top:-2rem;
+  width:2px;
+  height:2rem;
+  background:var(--verde);
 }
 
 /* ---------- Tarjetas de condiciones ---------- */
@@ -166,18 +260,13 @@ h3{
   margin:0;
 }
 .tarjeta{
+  background:var(--blanco);
   border:1px solid rgba(29,35,28,.2);
   border-top:3px solid var(--verde);
   padding:1.25rem 1.125rem 1.375rem;
 }
 .tarjeta .ico{margin:0 0 .875rem;}
-.tarjeta h4{
-  font-family:var(--sans);
-  font-weight:700;
-  font-size:1rem;
-  line-height:1.35;
-  margin:0 0 .375rem;
-}
+.tarjeta h3{color:var(--verde);margin:0 0 .375rem;}
 .tarjeta p{
   font-weight:300;
   font-size:.9375rem;
@@ -250,6 +339,29 @@ h3{
   line-height:1.55;
   color:var(--negro);
 }
+.dd--vacio{color:rgba(29,35,28,.55);}
+
+/* Listas: marcador cuadrado, sin viñeta del navegador */
+.lista{list-style:none;margin:0;padding:0;}
+.lista li{
+  position:relative;
+  padding-left:1.0625rem;
+  margin-bottom:.4375rem;
+  line-height:1.45;
+}
+.lista li:last-child{margin-bottom:0;}
+.lista li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.55em;
+  width:.375rem;
+  height:.375rem;
+  background:var(--verde);
+}
+/* Lo que el plan hereda del anterior, para no repetir la lista entera */
+.lista__hereda{font-weight:700;}
+.lista__hereda::before{background:var(--verde-vivo);}
 .programa__pie{
   margin-top:auto;
   padding-top:1rem;
@@ -313,27 +425,43 @@ h3{
 .pie{
   background:#000;
   color:var(--hueso);
-  padding:1.75rem 0;
+  text-align:center;
+  padding:2.25rem 0 calc(2.25rem + var(--barra-alto) + env(safe-area-inset-bottom));
   font-size:.875rem;
   font-weight:300;
 }
 .pie p{margin:0;}
 .lema{
-  display:inline-block;
+  display:block;
   font-family:var(--sans);
   font-weight:400;
-  font-size:.9375rem;
-  letter-spacing:.06em;
+  font-size:1.0625rem;
+  letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--hueso);
-  background:var(--negro);
-  padding:.5rem .875rem;
-  margin-top:1rem;
+  margin-top:.75rem;
 }
 .lema b{font-weight:800;color:var(--verde-vivo);}
 
 /* ---------- Pantallas grandes ---------- */
+@media (max-width:29.99rem){
+  .ciclo__linea{flex-direction:column;}
+  .ciclo__hito{max-width:none;border-left:0;border-top:4px solid var(--verde-vivo);}
+}
+
 @media (min-width:40rem){
+  .trio__item,
+  .tarjeta,
+  .flujo__paso{display:block;}
+  .trio__item .ico,
+  .tarjeta .ico{margin:0 0 .875rem;}
+  .flujo__paso .ico{margin:0 0 .875rem;}
+  .trio__item h3,
+  .tarjeta h3{margin:0 0 .375rem;}
+  .flujo__paso h3{margin:0 0 .375rem;}
+  .trio__item p,
+  .tarjeta p,
+  .flujo__paso p{margin:0;}
   .tarjetas{grid-template-columns:repeat(3,1fr);gap:1rem;}
   .trio{grid-template-columns:repeat(3,1fr);gap:1.75rem;}
   .trio__item{border-top:2px solid var(--verde);padding:1.125rem 0 0;}

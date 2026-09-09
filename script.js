@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  // Reemplazar por el número de Martín en formato internacional, sin signos.
-  var TELEFONO = '5493700000000';
+  // WhatsApp de Martín: +54 9 3525 53-0200, en formato internacional sin signos.
+  var TELEFONO = '5493525530200';
   var MENSAJE = 'Hola, vi la página del poroto mung y quiero saber si entra en mi planteo.';
 
   // 1. Armar los enlaces a WhatsApp. Los botones con data-plan mandan el

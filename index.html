@@ -24,8 +24,12 @@
       <path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546" />
     </symbol>
     <symbol id="i-ciclo" viewBox="0 0 24 24">
-      <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-      <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+      <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+      <path d="M16 3v4" />
+      <path d="M8 3v4" />
+      <path d="M4 11h16" />
+      <path d="M11 15h1" />
+      <path d="M12 15v3" />
     </symbol>
     <symbol id="i-sembradora" viewBox="0 0 24 24">
       <path d="M3 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -55,6 +59,19 @@
       <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1" />
       <path d="M12 7v10" />
     </symbol>
+    <symbol id="i-paquete" viewBox="0 0 24 24">
+      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+      <path d="M12 12l8 -4.5" />
+      <path d="M12 12l0 9" />
+      <path d="M12 12l-8 -4.5" />
+      <path d="M16 5.25l-8 4.5" />
+    </symbol>
+    <symbol id="i-camion" viewBox="0 0 24 24">
+      <path d="M5 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+      <path d="M15 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+      <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+      <path d="M3 9l4 0" />
+    </symbol>
   </defs>
 </svg>
 
@@ -64,101 +81,136 @@
   <div class="col">
     <p class="marca">Prome AgroNegocios<span>Cultivos especiales</span></p>
     <h1>Poroto mung,<br>siembra de primavera</h1>
-    <p class="bajada">Un lote vacío se puede transformar en raíces, granos y renta. Acá está cuándo eso entra en tu planteo y cuándo no.</p>
+    <p class="bajada">Qué deja el cultivo, qué necesita el lote y las tres formas de sembrarlo con Prome.</p>
+    <a class="boton" href="#programas">Ver los programas</a>
   </div>
 </header>
 
 <main>
 
-  <section id="planteo" class="seccion">
+  <section id="lote" class="seccion">
     <div class="col">
-      <h2>Si entra en tu planteo</h2>
-
-      <div class="situacion">
-        <h3>Se pasó la fecha del girasol</h3>
-        <p>El lote estaba para girasol y la fecha se fue. Ahora queda libre hasta la próxima siembra.</p>
-        <p>Ahí entra el mung. La ventana de primavera sigue abierta y el ciclo es corto, así que el lote produce en lugar de esperar.</p>
-        <p class="apunte">Si te quedó libre por otro motivo, el planteo es el mismo.</p>
+      <h2>Qué hace el mung en el lote</h2>
+      <div class="par">
+        <div class="par__cuerpo">
+      <div class="trio">
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-raiz"></use></svg>
+          <h3>Raíces</h3>
+          <p>Es una leguminosa y va inoculada, así que fija nitrógeno. Y cubre el suelo desde temprano.</p>
+        </div>
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-grano"></use></svg>
+          <h3>Granos</h3>
+          <p>En 90 días hay grano. Entra en primavera y sale antes de que haya que sembrar lo de verano.</p>
+        </div>
+        <div class="trio__item">
+          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-renta"></use></svg>
+          <h3>Renta</h3>
+          <p>Un lote no asignado termina la campaña con grano para vender.</p>
+        </div>
       </div>
 
-      <h3 class="sub">Lo que hace falta</h3>
+      <figure class="ciclo">
+        <figcaption>El ciclo termina antes de la siembra de verano</figcaption>
+        <div class="ciclo__linea">
+          <div class="ciclo__tramo">
+            <span class="ciclo__etiq">Poroto mung</span>
+            <b class="ciclo__dato">90 días</b>
+          </div>
+          <div class="ciclo__hito">
+            <span class="ciclo__etiq">Diciembre</span>
+            <b class="ciclo__dato">Siembra de verano</b>
+          </div>
+        </div>
+        <p class="ciclo__nota">El lote hace dos campañas en lugar de una.</p>
+      </figure>
+        </div>
+        <div class="foto foto--lote" role="presentation"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planteo" class="seccion seccion--hueso">
+    <div class="col">
+      <h2>Lo que hace falta</h2>
+      <div class="par">
+        <div class="par__cuerpo">
       <div class="tarjetas">
         <div class="tarjeta">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-gota"></use></svg>
-          <h4>Humedad a la siembra</h4>
-          <p>Es la condición que no se negocia. Sin humedad al momento de sembrar, no es el cultivo.</p>
+          <h3>Humedad en el perfil</h3>
+          <p>Es poco extractivo. No necesita un perfil tan cargado como un cultivo largo.</p>
         </div>
         <div class="tarjeta">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-ciclo"></use></svg>
-          <h4>Lugar para un cultivo de verano atrás</h4>
-          <p>Con 90 días de ciclo el lote se libera a tiempo, si querés aprovecharlo.</p>
+          <h3>Estar en fecha</h3>
+          <p>Siembra de primavera. Si la ventana sigue abierta en tu zona, entra.</p>
         </div>
         <div class="tarjeta">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sembradora"></use></svg>
-          <h4>Maquinaria convencional</h4>
+          <h3>Maquinaria convencional</h3>
           <p>No hace falta equipo especial.</p>
         </div>
       </div>
 
       <div class="destacado">
-        <h3>El barbecho no sale gratis</h3>
-        <p>Un lote vacío se cubre de malezas y ese control cuesta plata igual. El mung cierra el surco en 20 días, así que compite él. El control queda dentro del costo del cultivo y el lote además produce.</p>
+        <h3>El lote parado también cuesta</h3>
+        <p>Las malezas hay que controlarlas igual, y en un lote parado ese gasto no rinde. Con el mung el surco cierra en 20 días y el cultivo compite solo. El mismo gasto, pero dentro de una campaña que da grano.</p>
       </div>
-    </div>
-  </section>
-
-  <section id="lote" class="seccion seccion--hueso">
-    <div class="col">
-      <h2>Qué hace el mung en el lote</h2>
-      <div class="trio">
-        <div class="trio__item">
-          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-raiz"></use></svg>
-          <h3>Raíces</h3>
-          <p>Es una leguminosa y se siembra inoculada. El suelo deja de estar expuesto.</p>
         </div>
-        <div class="trio__item">
-          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-grano"></use></svg>
-          <h3>Granos</h3>
-          <p>Ciclo de 90 días. Entra en primavera y sale antes de las heladas, sin comprometer el lote para el resto del año.</p>
-        </div>
-        <div class="trio__item">
-          <svg class="ico ico--grande" aria-hidden="true" focusable="false"><use href="#i-renta"></use></svg>
-          <h3>Renta</h3>
-          <p>Un lote que iba a quedar en barbecho termina la campaña con producción para vender.</p>
-        </div>
+        <div class="foto foto--barbecho" role="presentation"></div>
       </div>
     </div>
   </section>
 
   <section id="modalidad" class="seccion">
-    <div class="col col--angosta">
-      <h2>Cómo se trabaja con Prome</h2>
+    <div class="col">
+      <h2>Cómo trabajamos</h2>
       <p class="lead">En un cultivo de nicho la primera pregunta no es agronómica. Es quién compra la producción.</p>
-      <p>Prome compra. Los tres programas van con el compromiso de entregar la producción a Prome, y esa es la contraparte de todo lo que sigue.</p>
-      <p>Además de la semilla, Prome acompaña la elección del cultivo según el ambiente, el manejo durante la campaña y la comercialización.</p>
+      <ol class="flujo">
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-paquete"></use></svg>
+          <h3>Ponemos la semilla</h3>
+          <p>Y según el programa, el acompañamiento.</p>
+        </li>
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sembradora"></use></svg>
+          <h3>Vos sembrás y cosechás</h3>
+          <p>En tu lote, con tu maquinaria.</p>
+        </li>
+        <li class="flujo__paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-camion"></use></svg>
+          <h3>Compramos el grano</h3>
+          <p>Nos entregás la producción. Es el compromiso de los tres programas.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <section id="programas" class="seccion seccion--comparador">
     <div class="col">
       <h2>Tres formas de sembrarlo</h2>
-      <p class="lead">Cambian la semilla, la forma de pago y el acompañamiento. El resto es igual en los tres.</p>
+      <p class="lead">La semilla es la misma. Cambia lo que va con ella, cómo se paga y el acompañamiento.</p>
 
       <div class="comparador">
       <article id="canje" class="programa programa--destacado">
         <header class="programa__cab">
           <h3>Canje dos por uno</h3>
-          <p class="programa__modo">Sin desembolso en la siembra</p>
+          <p class="programa__precio">2 × 1</p>
+          <p class="programa__unidad">Sin desembolso en la siembra</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
-          <dd>La semilla.</dd>
+          <dt>Qué ponemos</dt>
+          <dd>
+            <ul class="lista">
+              <li>Semilla</li>
+            </ul>
+          </dd>
           <dt>Cómo se paga</dt>
-          <dd>A cosecha devolvés dos kilos por cada kilo de semilla recibido. Sobre una referencia de 25 kg por hectárea, son 50 kg de producto terminado. Es un compromiso de devolución, no una entrega opcional.</dd>
-          <dt>La devolución es base 100</dt>
-          <dd>Base 100 es grano limpio y bueno. Como lo que sale de la cosechadora no viene así, la entrega real ronda los 58 kg por hectárea para llegar a 50 kg limpios.</dd>
+          <dd>A cosecha devolvés <b>dos kilos por cada kilo</b> de semilla recibido. Sobre una referencia de <b>25 kg por hectárea</b>, son <b>50 kg</b> de producto terminado. La devolución se mide sobre grano limpio, así que la entrega real es algo mayor. Es un compromiso de devolución, no una entrega opcional.</dd>
           <dt>Acompañamiento</dt>
-          <dd>No incluye.</dd>
+          <dd class="dd--vacio">No incluye.</dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>
@@ -169,15 +221,26 @@
       <article id="p40" class="programa">
         <header class="programa__cab">
           <h3>Programa con seguimiento</h3>
-          <p class="programa__modo">40 dólares por hectárea</p>
+          <p class="programa__precio">USD 40</p>
+          <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
-          <dd>Semilla, cubresemilla e inoculante.</dd>
-          <dt>Cómo se paga</dt>
-          <dd>40 dólares por hectárea.</dd>
+          <dt>Qué ponemos</dt>
+          <dd>
+            <ul class="lista">
+              <li>Semilla</li>
+              <li>Cubresemilla</li>
+              <li>Inoculante</li>
+            </ul>
+          </dd>
           <dt>Acompañamiento</dt>
-          <dd>Grupo de WhatsApp con el cultivo y la fecha de siembra cargados en un calendario, con avisos en cada etapa del cultivo. Incluye alguna visita técnica.</dd>
+          <dd>
+            <ul class="lista">
+              <li>Grupo de WhatsApp con tu siembra en calendario</li>
+              <li>Avisos en cada etapa del cultivo</li>
+              <li>Alguna visita técnica</li>
+            </ul>
+          </dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>
@@ -188,15 +251,26 @@
       <article id="p60" class="programa">
         <header class="programa__cab">
           <h3>Programa con seguimiento y biológicos</h3>
-          <p class="programa__modo">60 dólares por hectárea</p>
+          <p class="programa__precio">USD 60</p>
+          <p class="programa__unidad">por hectárea</p>
         </header>
         <dl>
-          <dt>Qué entrega Prome</dt>
-          <dd>Semilla, cubresemilla e inoculante, más un activador de germinación y enraizado y un biológico para dos aplicaciones durante el ciclo.</dd>
-          <dt>Cómo se paga</dt>
-          <dd>60 dólares por hectárea.</dd>
+          <dt>Qué ponemos</dt>
+          <dd>
+            <ul class="lista">
+              <li class="lista__hereda">Todo lo del programa con seguimiento</li>
+              <li>Activador de germinación y enraizado</li>
+              <li>Biológico para dos aplicaciones</li>
+            </ul>
+          </dd>
           <dt>Acompañamiento</dt>
-          <dd>Seguimiento técnico más cercano, con visita y una mirada sobre el manejo de toda la campaña.</dd>
+          <dd>
+            <ul class="lista">
+              <li class="lista__hereda">Todo lo del programa con seguimiento</li>
+              <li>Seguimiento técnico más cercano, con visita</li>
+              <li>Mirada estratégica de toda la campaña</li>
+            </ul>
+          </dd>
         </dl>
         <footer class="programa__pie">
           <p>La producción se entrega a Prome.</p>
@@ -210,7 +284,7 @@
   <section id="contacto" class="seccion seccion--cierre">
     <div class="col col--angosta">
       <h2>Volvé al chat</h2>
-      <p>Si entra en tu planteo, el paso siguiente es contarle a Martín la zona y la superficie que estás pensando. Con eso arma la propuesta.</p>
+      <p>Contanos la zona y la superficie. Con eso armamos la propuesta.</p>
       <a class="boton" id="cta-final" href="#" data-wa>Seguir por WhatsApp</a>
     </div>
   </section>
@@ -225,7 +299,7 @@
 </footer>
 
 <div class="barra" id="barra">
-  <a class="boton boton--barra" href="#" data-wa>Preguntale a Martín</a>
+  <a class="boton boton--barra" href="#" data-wa>Escribinos</a>
 </div>
 
 <script src="script.js"></script>
