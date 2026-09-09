@@ -148,12 +148,13 @@ h3{
    solo se declara dentro del media query de escritorio. Así la página no
    crece de alto en el teléfono ni gasta datos en el campo.
    Para cargar una imagen, poné la ruta en el bloque de 60rem de más abajo. */
-.par{display:grid;gap:2rem;}
+.par{display:grid;}
+.par__cuerpo{display:grid;gap:2.5rem;align-content:start;}
 .foto{display:none;}
 
 
 /* ---------- Gráfico del ciclo ---------- */
-.ciclo{margin:2.75rem 0 0;max-width:var(--medida);}
+.ciclo{margin:0;max-width:var(--medida);}
 .ciclo figcaption{
   font-family:var(--sans);
   font-weight:800;
@@ -225,8 +226,7 @@ h3{
 
 /* ---------- Destacado ---------- */
 .destacado{
-  max-width:var(--medida);
-  margin:2.5rem 0 0;
+  margin:0;
   padding:1.625rem 1.375rem;
   background:var(--negro);
   color:var(--hueso);
@@ -270,6 +270,8 @@ h3{
   color:var(--negro);
   font-size:1.0625rem;
   line-height:1.3;
+  /* Dos líneas fijas para que las tres cifras arranquen a la misma altura */
+  min-height:2.6em;
   margin:0 0 .625rem;
 }
 .programa__precio{
@@ -432,13 +434,14 @@ h3{
 }
 
 @media (min-width:60rem){
-  /* La foto ocupa la franja que el texto ya dejaba libre, así que no
-     agrega scroll. Las rutas ya están puestas: alcanza con dejar el
-     archivo en img/ y borrar los data-rot y data-med del HTML. */
-  .par{grid-template-columns:minmax(0,1fr) 21rem;gap:2.5rem;align-items:stretch;}
+  /* La foto es una columna que corre a lo alto de toda la sección, no un
+     recorte al lado de un bloque suelto. Ocupa el ancho que el texto ya
+     dejaba libre, así que no agrega scroll. */
+  .par{grid-template-columns:minmax(0,1fr) 19rem;gap:2.5rem;align-items:stretch;}
   .foto{
     display:block;
-    min-height:16rem;
+    height:100%;
+    min-height:22rem;
     background-color:var(--verde);
     background-size:cover;
     background-position:center;
