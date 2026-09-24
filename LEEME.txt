@@ -1,0 +1,13 @@
+IMÁGENES DE LA PROPUESTA DE SIMÓN
+=================================
+
+granos-mano.webp     1130 x 696    46 KB
+    Foto de portada. Recortada de la página 1 del PDF de Simón.
+    Viene de una imagen ya comprimida dentro del PDF: si Simón tiene
+    el archivo original, conviene reemplazarla por esa.
+
+logo-prome.webp       344 x 172    16 KB
+    Recortado de la página 1 del PDF, con el fondo vuelto
+    transparente y la tinta repintada al verde del manual (#30792f).
+    Es un recorte de una imagen rasterizada: si existe el logo en
+    vectorial (SVG), usar ese.

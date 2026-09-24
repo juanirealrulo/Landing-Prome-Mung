@@ -1,31 +1,37 @@
+/* ==========================================================================
+   Prome AgroNegocios · Poroto mung · Propuesta comercial (versión Simón)
+   Paleta y tipografías del Manual de Estilo, sep 2026.
+   ========================================================================== */
+
 :root{
   --verde:#30792f;
   --verde-vivo:#4CAF50;
+  --verde-agua:#e7efe6;   /* tinte del verde para paneles sutiles */
   --negro:#1d231c;
   --hueso:#e1dfd9;
   --blanco:#ffffff;
+  --wa:#25D366;           /* verde de WhatsApp, solo para sus botones */
+  --wa-borde:#1da851;
   --serif:"Libre Baskerville", Georgia, serif;
   --sans:"Almarai", system-ui, -apple-system, sans-serif;
   --ancho:70rem;
-  --medida:44rem;
-  --barra-alto:4.75rem;
+  --medida:42rem;
+  --radio:12px;
 }
 
 *{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
-
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
 body{
   margin:0;
   font-family:var(--sans);
   font-size:1.0625rem;
-  line-height:1.62;
+  line-height:1.6;
   color:var(--negro);
   background:var(--blanco);
 }
-
 p{margin:0 0 1rem;}
 p:last-child{margin-bottom:0;}
-
+img{max-width:100%;height:auto;display:block;}
 .simbolos{position:absolute;width:0;height:0;overflow:hidden;}
 
 .col{
@@ -33,320 +39,248 @@ p:last-child{margin-bottom:0;}
   margin:0 auto;
   padding:0 1.375rem;
 }
-.col--angosta{max-width:46rem;}
 
-/* ---------- Íconos: Tabler Icons, MIT ---------- */
-/* Tile verde con trazo blanco, según el manual de estilo */
-.ico{
+h2{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.75rem;
+  line-height:1.25;
+  color:var(--verde);
+  margin:0 0 .5rem;
+}
+h3{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.1875rem;
+  line-height:1.3;
+  color:var(--verde);
+  margin:0 0 .375rem;
+}
+.lead{
+  font-size:1.0625rem;
+  color:rgba(29,35,28,.72);
+  max-width:var(--medida);
+  margin:0 0 2rem;
+}
+
+/* ---------- Portada ---------- */
+.portada{padding:2.5rem 0 2.75rem;}
+.portada__cab{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:1rem;
+  align-items:start;
+  margin:0 0 2rem;
+}
+.volanta{
+  font-weight:800;
+  font-size:.8125rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--verde);
+  margin:0 0 .5rem;
+}
+h1{
+  font-family:var(--sans);
+  line-height:.95;
+  text-transform:uppercase;
+  margin:0 0 1rem;
+  color:var(--negro);
+}
+.h1__fino,.h1__grueso{display:block;}
+.h1__fino{font-weight:300;font-size:2.75rem;letter-spacing:.01em;}
+.h1__grueso{font-weight:800;font-size:3.25rem;color:var(--verde);letter-spacing:-.005em;}
+.bajada{
+  font-size:1.0625rem;
+  color:rgba(29,35,28,.72);
+  max-width:24ch;
+  margin:0;
+}
+.logo{width:6.5rem;height:auto;}
+
+.portada__foto{
+  width:100%;
+  aspect-ratio:1130 / 696;
+  object-fit:cover;
+  border-radius:var(--radio);
+  margin:0 0 1rem;
+}
+
+/* Tres datos duros bajo la foto */
+.datos{
+  list-style:none;
+  margin:0 0 1.75rem;
+  padding:0;
+  display:grid;
+  gap:.75rem;
+}
+.datos li{
+  border:1px solid rgba(29,35,28,.14);
+  border-radius:var(--radio);
+  padding:1rem 1.125rem;
+  background:var(--blanco);
+}
+.datos b{
+  display:block;
+  font-weight:800;
+  font-size:1.5rem;
+  line-height:1.1;
+  color:var(--verde);
+  text-transform:uppercase;
+}
+.datos span{
+  display:block;
+  font-size:.875rem;
+  color:rgba(29,35,28,.68);
+  margin-top:.25rem;
+}
+.nucleo{
+  font-weight:800;
+  font-size:1.0625rem;
+  color:var(--negro);
+  max-width:var(--medida);
+  margin:0;
+}
+
+/* ---------- Secciones ---------- */
+.seccion{padding:3.25rem 0;}
+.seccion--hueso{background:var(--hueso);}
+
+/* ---------- Rasgos, grilla 2x2 ---------- */
+.rasgos{display:grid;gap:.875rem;margin:0 0 2.75rem;}
+.rasgo{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-rows:auto 1fr;   /* la fila del título se ajusta; el sobrante va abajo */
+  column-gap:1rem;
+  row-gap:.25rem;
+  align-items:start;
+  background:var(--blanco);
+  border-radius:var(--radio);
+  padding:1.25rem;
+}
+.rasgo__ico{
+  grid-row:1 / span 2;
   width:2.75rem;
   height:2.75rem;
-  padding:.5rem;
-  display:block;
+  border-radius:50%;
   background:var(--verde);
+  display:grid;
+  place-items:center;
+}
+.rasgo__ico svg{
+  width:1.375rem;
+  height:1.375rem;
   fill:none;
   stroke:var(--blanco);
   stroke-width:2;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-.ico--grande{width:3.25rem;height:3.25rem;padding:.625rem;}
+.rasgo h3{margin:.3rem 0 0;}
+.rasgo p{font-weight:300;font-size:.9375rem;margin:0;}
 
-/* ---------- Indicador de avance ---------- */
-.progreso{
-  position:fixed;
-  inset:0 0 auto 0;
-  height:3px;
-  background:rgba(29,35,28,.14);
-  z-index:20;
-}
-.progreso span{
-  display:block;
-  height:100%;
-  width:0;
-  background:var(--verde-vivo);
-}
-
-/* ---------- Portada ---------- */
-.portada{
-  /* Fondo: img/portada.webp. Va detrás del velo verde, así que no cambia
-     el alto de la banda en ningún tamaño. Si el archivo no existe todavía,
-     el navegador cae al color y la banda se ve igual de bien.
-     El velo va al 84%: es el valor más bajo que deja el texto chico por
-     encima de 4.5:1 de contraste sobre el píxel más claro de la foto.
-     Bajarlo muestra más la imagen pero incumple AA. */
-  background-color:var(--verde);
-  background-image:linear-gradient(rgba(48,121,47,.84), rgba(48,121,47,.84)), url("img/portada.webp");
-  background-size:cover;
-  background-position:center;
-  color:var(--blanco);
-  padding:3.25rem 0 3rem;
-}
-.marca{
-  font-family:var(--serif);
-  font-size:1rem;
-  line-height:1.3;
-  margin:0 0 2.5rem;
-}
-.marca span{
-  display:block;
-  font-family:var(--sans);
-  font-weight:300;
-  font-size:.8125rem;
-  letter-spacing:.14em;
-  opacity:.85;
-  margin-top:.25rem;
-}
-.portada h1{
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:2.0625rem;
-  line-height:1.2;
-  margin:0 0 1.125rem;
-}
-.bajada{
-  font-weight:300;
-  font-size:1.0625rem;
-  line-height:1.6;
-  margin:0;
-  max-width:34ch;
-}
-
-/* ---------- Secciones ---------- */
-.seccion{padding:3.25rem 0;}
-.seccion--hueso{background:var(--hueso);}
-.seccion--cierre{
-  background:var(--verde);
-  color:var(--blanco);
-  text-align:center;
-}
-.seccion--cierre .col{max-width:34rem;}
-.seccion--cierre h2{font-size:2.25rem;margin-bottom:1.25rem;}
-.seccion--cierre p{margin-left:auto;margin-right:auto;max-width:40ch;}
-
-h2{
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:1.625rem;
-  line-height:1.28;
-  margin:0 0 1.5rem;
-  color:var(--verde);
-}
-.seccion--cierre h2{color:var(--blanco);}
-
-h3{
-  font-family:var(--serif);
-  font-weight:700;
-  font-size:1.1875rem;
-  line-height:1.32;
-  margin:0 0 .625rem;
-}
-
-.lead{
-  max-width:42ch;
-  font-size:1.125rem;
-  line-height:1.55;
-  margin:0 0 1.75rem;
-  max-width:40ch;
-}
-
-/* ---------- Bloque de situación ---------- */
-.situacion{
-  max-width:var(--medida);
-  border-left:4px solid var(--verde);
-  padding:.125rem 0 .125rem 1.125rem;
-  margin:0 0 2.75rem;
-}
-.situacion h3{color:var(--verde);font-size:1.375rem;}
-.apunte{
-  font-size:.9375rem;
-  font-weight:300;
-  color:rgba(29,35,28,.72);
-}
-
-/* ---------- Gráfico del ciclo ---------- */
-.ciclo{margin:0;max-width:var(--medida);}
-.ciclo figcaption{
-  font-family:var(--sans);
-  font-weight:800;
-  font-size:.9375rem;
-  color:var(--verde);
+/* ---------- Ficha técnica ---------- */
+.ficha__titulo{
+  font-size:1.375rem;
+  color:var(--negro);
   margin:0 0 1rem;
 }
-.ciclo__linea{display:flex;align-items:stretch;gap:3px;}
-.ciclo__tramo{
-  flex:1 1 auto;
-  background:var(--verde);
-  color:var(--blanco);
-  padding:.875rem 1rem;
-}
-.ciclo__hito{
-  flex:0 0 auto;
-  max-width:9rem;
-  background:rgba(29,35,28,.1);
-  border-left:4px solid var(--verde-vivo);
-  color:var(--negro);
-  padding:.875rem 1rem;
-}
-.ciclo__etiq{
-  display:block;
-  font-size:.8125rem;
-  font-weight:300;
-  opacity:.85;
-  margin-bottom:.125rem;
-}
-.ciclo__dato{
-  display:block;
-  font-family:var(--sans);
-  font-weight:800;
-  font-size:1rem;
-  line-height:1.25;
-}
-.ciclo__nota{
-  font-size:.875rem;
-  font-weight:300;
-  color:rgba(29,35,28,.72);
-  margin:1rem 0 0;
-}
-
-/* ---------- Ícono + título en fila (solo pantallas chicas) ----------
-   Abajo de 40rem los ítems van apilados y el tile quedaba solo en su
-   renglón con todo el ancho vacío a la derecha. Acá el título sube al
-   lado del ícono y el texto corre debajo a todo el ancho. */
-.trio__item,
-.tarjeta,
-.flujo__paso{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  column-gap:1rem;
-  align-items:center;
-}
-.trio__item .ico,
-.tarjeta .ico,
-.flujo__paso .ico{grid-column:1;grid-row:1;margin:0;}
-.trio__item h3,
-.tarjeta h3,
-.flujo__paso h3{grid-column:2;grid-row:1;margin:0;}
-.trio__item p,
-.tarjeta p,
-.flujo__paso p{grid-column:1 / -1;margin:.75rem 0 0;}
-
-/* ---------- Esquema de tres pasos ---------- */
-.flujo{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:grid;
-  gap:2rem;
-}
-.flujo__paso{position:relative;}
-.flujo__paso .ico{margin:0 0 .875rem;}
-.flujo__paso h3{color:var(--verde);margin:0 0 .375rem;}
-.flujo__paso p{font-weight:300;margin:0;max-width:30ch;}
-/* En vertical, una línea une el tile de un paso con el siguiente */
-.flujo__paso + .flujo__paso::before{
-  content:"";
-  position:absolute;
-  left:calc(1.375rem - 1px);
-  top:-2rem;
-  width:2px;
-  height:2rem;
-  background:var(--verde);
-}
-
-/* ---------- Tarjetas de condiciones ---------- */
-.tarjetas{
-  display:grid;
-  gap:.875rem;
-  margin:0;
-}
-.tarjeta{
+.ficha{
+  width:100%;
+  border-collapse:collapse;
   background:var(--blanco);
-  border:1px solid rgba(29,35,28,.2);
-  border-top:3px solid var(--verde);
-  padding:1.25rem 1.125rem 1.375rem;
+  border-radius:var(--radio);
+  overflow:hidden;
+  margin:0 0 2.5rem;
 }
-.tarjeta .ico{margin:0 0 .875rem;}
-.tarjeta h3{color:var(--verde);margin:0 0 .375rem;}
-.tarjeta p{
-  font-weight:300;
+.ficha th,.ficha td{
+  padding:.9375rem 1.25rem;
+  border-bottom:1px solid rgba(29,35,28,.1);
+  vertical-align:top;
   font-size:.9375rem;
-  line-height:1.55;
-  margin:0;
 }
-
-/* ---------- Destacado ---------- */
-.destacado{
-  max-width:var(--medida);
-  margin:2.5rem 0 0;
-  padding:1.625rem 1.375rem;
-  background:var(--negro);
-  color:var(--hueso);
+.ficha tr:last-child th,.ficha tr:last-child td{border-bottom:0;}
+.ficha th{
+  text-align:left;
+  font-weight:700;
+  color:rgba(29,35,28,.7);
+  width:50%;
 }
-.destacado h3{color:var(--verde-vivo);}
-.destacado p{font-weight:300;margin:0;}
+.ficha td{text-align:right;font-weight:400;}
 
-/* ---------- Trío raíces, granos, renta ---------- */
-.trio{display:grid;gap:0;}
-.trio__item{
-  padding:1.5rem 0;
-  border-top:1px solid rgba(29,35,28,.22);
+/* ---------- Panel sutil ---------- */
+.panel{
+  background:var(--verde-agua);
+  border-radius:var(--radio);
+  padding:1.5rem 1.5rem;
 }
-.trio__item:last-child{border-bottom:1px solid rgba(29,35,28,.22);}
-.trio__item .ico{margin:0 0 .75rem;}
-.trio__item h3{color:var(--verde);margin-bottom:.375rem;}
-.trio__item p{font-weight:300;margin:0;max-width:44ch;}
+.seccion--hueso .panel{background:var(--blanco);}
+.panel p{max-width:62ch;margin:0;}
 
-/* ---------- Comparador de programas ---------- */
-.seccion--comparador{background:var(--negro);color:var(--hueso);}
-.seccion--comparador h2{color:var(--blanco);}
-.seccion--comparador .lead{color:var(--hueso);}
-
-.comparador{display:grid;gap:1.125rem;align-items:stretch;}
-
-.programa{
+/* ---------- Planes ---------- */
+.planes{display:grid;gap:1.125rem;margin:0 0 2rem;}
+.plan{
   display:flex;
   flex-direction:column;
-  background:var(--hueso);
-  color:var(--negro);
-  border-top:6px solid var(--verde);
-  padding:1.5rem 1.25rem 1.375rem;
+  border:1px solid rgba(29,35,28,.14);
+  border-radius:var(--radio);
+  overflow:hidden;
+  background:var(--blanco);
 }
-.programa--destacado{border-top-color:var(--verde-vivo);}
-.programa__cab{
-  padding-bottom:1rem;
-  margin-bottom:1.125rem;
-  border-bottom:1px solid rgba(29,35,28,.22);
+/* Canje en verde, los dos pagos en verde casi negro: marca que el canje
+   es otra especie de plan, una forma de pago y no un escalón de precio. */
+.plan__cab{background:var(--negro);color:var(--blanco);padding:1.25rem 1.375rem 1.125rem;}
+.plan--canje .plan__cab{background:var(--verde);}
+.plan__tipo{
+  font-weight:800;
+  font-size:.75rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.85;
+  margin:0 0 .25rem;
 }
-.programa h3{color:var(--negro);margin:0 0 .25rem;}
-.programa__modo{
+.plan__cab h3{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:1.75rem;
+  line-height:1.1;
+  color:var(--blanco);
+  margin:0;
+}
+.plan__cuerpo{
+  padding:1.375rem;
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+}
+.plan h4{
   font-family:var(--sans);
   font-weight:800;
   font-size:.9375rem;
-  color:var(--verde);
-  margin:0;
-}
-.programa dl{margin:0;flex:1 1 auto;}
-.programa dt{
-  font-size:.8125rem;
-  font-weight:700;
-  color:var(--verde);
-  margin:0 0 .1875rem;
-}
-.programa dd{
-  margin:0 0 1.125rem;
-  font-weight:300;
-  font-size:.9375rem;
-  line-height:1.55;
   color:var(--negro);
+  margin:0 0 .75rem;
 }
-.dd--vacio{color:rgba(29,35,28,.55);}
+.plan__pie{
+  margin-top:auto;
+  padding-top:1.25rem;
+  border-top:1px solid rgba(29,35,28,.12);
+}
+.plan__cuerpo .lista{margin-bottom:1.375rem;}
+.plan .plan__pie h4{color:var(--verde);}
+.plan__valor{
+  font-weight:800;
+  font-size:1.25rem;
+  line-height:1.25;
+  margin:0 0 .5rem;
+}
+.plan__nota{font-size:.875rem;color:rgba(29,35,28,.65);margin:0;}
 
-/* Listas: marcador cuadrado, sin viñeta del navegador */
 .lista{list-style:none;margin:0;padding:0;}
 .lista li{
   position:relative;
-  padding-left:1.0625rem;
-  margin-bottom:.4375rem;
+  padding-left:1.25rem;
+  margin-bottom:.5rem;
   line-height:1.45;
 }
 .lista li:last-child{margin-bottom:0;}
@@ -354,141 +288,159 @@ h3{
   content:"";
   position:absolute;
   left:0;
-  top:.55em;
-  width:.375rem;
-  height:.375rem;
+  top:.5em;
+  width:.5rem;
+  height:.5rem;
+  border-radius:50%;
   background:var(--verde);
 }
-/* Lo que el plan hereda del anterior, para no repetir la lista entera */
 .lista__hereda{font-weight:700;}
-.lista__hereda::before{background:var(--verde-vivo);}
-.programa__pie{
-  margin-top:auto;
-  padding-top:1rem;
-  border-top:1px solid rgba(29,35,28,.22);
-}
-.programa__pie p{
-  font-size:.8125rem;
-  font-weight:300;
-  color:rgba(29,35,28,.7);
-  margin:0 0 .875rem;
-}
 
-/* ---------- Botones ---------- */
-.boton{
-  display:inline-block;
+/* ---------- Pasos ---------- */
+.pasos{list-style:none;margin:0 0 3rem;padding:0;max-width:var(--medida);}
+.paso{
+  position:relative;
+  display:grid;
+  grid-template-columns:3rem 1fr;
+  column-gap:1.25rem;
+  padding-bottom:2rem;
+}
+.paso:last-child{padding-bottom:0;}
+/* línea que une cada círculo con el siguiente */
+.paso:not(:last-child)::before{
+  content:"";
+  position:absolute;
+  left:calc(1.5rem - 1px);
+  top:3.25rem;
+  bottom:.25rem;
+  width:2px;
+  background:rgba(48,121,47,.25);
+}
+.paso__num{
+  width:3rem;
+  height:3rem;
+  border-radius:50%;
+  background:var(--verde);
+  color:var(--blanco);
+  font-weight:800;
+  font-size:1.125rem;
+  display:grid;
+  place-items:center;
+}
+.paso h3{color:var(--negro);margin:.55rem 0 .25rem;}
+.paso p{font-weight:300;color:rgba(29,35,28,.78);margin:0;}
+
+/* ---------- Llamado final ---------- */
+.cta{
+  background:var(--verde);
+  color:var(--blanco);
+  border-radius:1rem;
+  padding:2rem 1.5rem;
+}
+.cta h2{color:var(--blanco);font-size:1.625rem;margin:0 0 .75rem;}
+.cta p{max-width:48ch;}
+.cta__firma{margin:1.5rem 0 1.5rem;line-height:1.5;}
+.cta__firma b{font-weight:800;}
+.cta__tel{opacity:.9;}
+
+/* Botón de WhatsApp: su verde, su ícono */
+.boton-wa{
+  display:inline-flex;
+  align-items:center;
+  gap:.625rem;
   font-family:var(--sans);
-  font-weight:700;
-  font-size:1rem;
+  font-weight:800;
+  font-size:1.0625rem;
   line-height:1;
   text-decoration:none;
-  padding:1.0625rem 1.75rem;
-  background:var(--negro);
-  color:var(--blanco);
-  border:2px solid var(--negro);
+  color:var(--negro);
+  background:var(--wa);
+  border:2px solid var(--wa);
+  border-radius:999px;
+  padding:.875rem 1.5rem .875rem 1.125rem;
 }
-.seccion--cierre .boton{margin-top:1.5rem;}
-.boton--plan{
-  display:block;
-  width:100%;
-  text-align:center;
-  font-size:.9375rem;
-  padding:.9375rem 1rem;
-  background:var(--verde);
-  border-color:var(--verde);
-}
-.boton--plan:focus-visible{outline-color:var(--negro);}
-.boton:focus-visible{outline:3px solid var(--blanco);outline-offset:3px;}
+.boton-wa svg{width:1.5rem;height:1.5rem;fill:currentColor;}
+.boton-wa:focus-visible{outline:3px solid var(--blanco);outline-offset:3px;}
 
-/* ---------- Barra fija ---------- */
-.barra{
-  position:fixed;
-  inset:auto 0 0 0;
-  background:var(--blanco);
-  border-top:1px solid rgba(29,35,28,.16);
-  padding:.75rem 1.375rem calc(.75rem + env(safe-area-inset-bottom));
-  z-index:15;
-  transition:transform .22s ease;
+.legal{
+  font-size:.8125rem;
+  color:rgba(29,35,28,.62);
+  max-width:62ch;
+  margin:1.5rem 0 0;
 }
-.barra[hidden]{display:block;transform:translateY(110%);}
-.boton--barra{
-  display:block;
-  text-align:center;
-  background:var(--verde);
-  border-color:var(--verde);
-  max-width:var(--ancho);
-  margin:0 auto;
-}
-.boton--barra:focus-visible{outline-color:var(--verde);}
 
 /* ---------- Pie ---------- */
 .pie{
-  background:#000;
-  color:var(--hueso);
-  text-align:center;
-  padding:2.25rem 0 calc(2.25rem + var(--barra-alto) + env(safe-area-inset-bottom));
-  font-size:.875rem;
-  font-weight:300;
+  border-top:1px solid rgba(29,35,28,.12);
+  font-size:.8125rem;
+  color:rgba(29,35,28,.6);
+  /* reserva para que el botón flotante no tape la última línea */
+  padding:1.25rem 0 calc(5.5rem + env(safe-area-inset-bottom));
 }
 .pie p{margin:0;}
-.lema{
-  display:block;
-  font-family:var(--sans);
-  font-weight:400;
-  font-size:1.0625rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--hueso);
-  margin-top:.75rem;
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.fab{
+  position:fixed;
+  right:1.125rem;
+  bottom:calc(1.125rem + env(safe-area-inset-bottom));
+  z-index:20;
+  width:3.625rem;
+  height:3.625rem;
+  border-radius:50%;
+  background:var(--wa);
+  border:2px solid var(--wa-borde);
+  color:var(--blanco);
+  display:grid;
+  place-items:center;
+  box-shadow:0 6px 18px rgba(29,35,28,.28);
+  transition:transform .22s ease, opacity .22s ease;
 }
-.lema b{font-weight:800;color:var(--verde-vivo);}
+.fab svg{width:2rem;height:2rem;fill:currentColor;}
+.fab:focus-visible{outline:3px solid var(--negro);outline-offset:3px;}
+.fab[hidden]{display:grid;opacity:0;transform:scale(.6);pointer-events:none;}
+
+/* ---------- Pantallas medianas ---------- */
+@media (min-width:40rem){
+  .datos{grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .rasgos{grid-template-columns:repeat(2,1fr);gap:1.125rem;}
+  .logo{width:8.5rem;}
+}
 
 /* ---------- Pantallas grandes ---------- */
-@media (max-width:29.99rem){
-  .ciclo__linea{flex-direction:column;}
-  .ciclo__hito{max-width:none;border-left:0;border-top:4px solid var(--verde-vivo);}
-}
-
-@media (min-width:40rem){
-  .trio__item,
-  .tarjeta,
-  .flujo__paso{display:block;}
-  .trio__item .ico,
-  .tarjeta .ico{margin:0 0 .875rem;}
-  .flujo__paso .ico{margin:0 0 .875rem;}
-  .trio__item h3,
-  .tarjeta h3{margin:0 0 .375rem;}
-  .flujo__paso h3{margin:0 0 .375rem;}
-  .trio__item p,
-  .tarjeta p,
-  .flujo__paso p{margin:0;}
-  .tarjetas{grid-template-columns:repeat(3,1fr);gap:1rem;}
-  .trio{grid-template-columns:repeat(3,1fr);gap:1.75rem;}
-  .trio__item{border-top:2px solid var(--verde);padding:1.125rem 0 0;}
-  .trio__item:last-child{border-bottom:0;}
-}
-
 @media (min-width:48rem){
   body{font-size:1.125rem;}
   .col{padding:0 2.5rem;}
-  .portada{padding:5rem 0 4.5rem;}
-  .portada h1{font-size:3.25rem;}
-  .bajada{font-size:1.1875rem;max-width:40ch;}
-  .seccion{padding:5rem 0;}
+  .portada{padding:3.5rem 0 3.5rem;}
+  .h1__fino{font-size:4rem;}
+  .h1__grueso{font-size:4.75rem;}
+  .logo{width:11rem;}
   h2{font-size:2.125rem;}
-  .situacion h3{font-size:1.625rem;}
-  .destacado{padding:2rem 2.25rem;}
-  .trio{gap:2.5rem;}
+  .seccion{padding:4.5rem 0;}
+  .cta{padding:2.75rem 2.75rem;}
+  .cta h2{font-size:2rem;}
+  .fab{right:1.75rem;bottom:calc(1.75rem + env(safe-area-inset-bottom));width:4rem;height:4rem;}
+  .fab svg{width:2.25rem;height:2.25rem;}
 }
 
 @media (min-width:60rem){
-  .comparador{grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-  .programa{padding:1.875rem 1.625rem 1.625rem;}
-  .tarjetas{gap:1.5rem;}
-  .seccion{padding:5.5rem 0;}
+  /* Subgrid: las tres tarjetas comparten cuatro filas (cabecera, "Incluye",
+     lista, pie). Así el pie de valor arranca a la misma altura en las tres
+     aunque una tenga una línea de más. */
+  .planes{
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:auto auto 1fr auto;
+    column-gap:1.25rem;
+    row-gap:0;
+  }
+  .plan{display:grid;grid-row:span 4;grid-template-rows:subgrid;}
+  .plan__cuerpo{display:contents;}
+  .plan__cuerpo > h4{padding:1.375rem 1.375rem 0;}
+  .plan__cuerpo > .lista{padding:0 1.375rem;margin-bottom:1.375rem;}
+  .plan__pie{margin:0 1.375rem 1.375rem;}
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .barra{transition:none;}
+  .fab{transition:none;}
 }

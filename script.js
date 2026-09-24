@@ -1,52 +1,27 @@
 (function () {
   'use strict';
 
-  // WhatsApp de Martín: +54 9 3525 53-0200, en formato internacional sin signos.
-  var TELEFONO = '5493525530200';
-  var MENSAJE = 'Hola, vi la página del poroto mung y quiero saber si entra en mi planteo.';
+  // WhatsApp de Simón en formato internacional sin signos:
+  // 54 (Argentina) + 9 (celular) + 351 8629374.
+  var TELEFONO = '5493518629374';
+  var MENSAJE = 'Hola Simón, vi la propuesta del poroto mung y quiero evaluarlo para esta campaña.';
 
-  // 1. Armar los enlaces a WhatsApp. Los botones con data-plan mandan el
-  //    nombre del programa, así Martín sabe de entrada por cuál preguntan.
+  // 1. Enlaces a WhatsApp.
+  var enlace = 'https://wa.me/' + TELEFONO + '?text=' + encodeURIComponent(MENSAJE);
   var botones = document.querySelectorAll('[data-wa]');
   for (var i = 0; i < botones.length; i++) {
-    var plan = botones[i].getAttribute('data-plan');
-    var texto = plan
-      ? 'Hola, tengo interés en el ' + plan + ' de poroto mung.'
-      : MENSAJE;
-    botones[i].setAttribute('href', 'https://wa.me/' + TELEFONO + '?text=' + encodeURIComponent(texto));
+    botones[i].setAttribute('href', enlace);
+    botones[i].setAttribute('target', '_blank');
     botones[i].setAttribute('rel', 'noopener');
   }
 
-  // 2. Indicador de avance de lectura.
-  var barraAvance = document.getElementById('progreso-barra');
-  var pendiente = false;
-
-  function avance() {
-    var alto = document.documentElement.scrollHeight - window.innerHeight;
-    var leido = alto > 0 ? Math.min(window.scrollY / alto, 1) : 1;
-    barraAvance.style.width = (leido * 100).toFixed(1) + '%';
-    pendiente = false;
-  }
-
-  window.addEventListener('scroll', function () {
-    if (!pendiente) {
-      pendiente = true;
-      window.requestAnimationFrame(avance);
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', avance, { passive: true });
-  avance();
-
-  // 3. Ocultar la barra fija cuando el cierre ya está en pantalla,
-  //    para que no queden dos botones iguales encimados.
-  var barra = document.getElementById('barra');
-  var cierre = document.getElementById('cta-final');
-
-  if ('IntersectionObserver' in window && barra && cierre) {
-    var observador = new IntersectionObserver(function (entradas) {
-      barra.hidden = entradas[0].isIntersecting;
-    }, { rootMargin: '0px 0px -80px 0px' });
-    observador.observe(cierre);
+  // 2. El botón flotante se esconde cuando el botón del llamado final ya está
+  //    en pantalla, para no mostrar dos accesos iguales encimados.
+  var fab = document.getElementById('fab');
+  var cta = document.getElementById('cta-wa');
+  if ('IntersectionObserver' in window && fab && cta) {
+    new IntersectionObserver(function (entradas) {
+      fab.hidden = entradas[0].isIntersecting;
+    }, { rootMargin: '0px 0px -40px 0px' }).observe(cta);
   }
 })();
