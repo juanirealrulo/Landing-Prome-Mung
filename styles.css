@@ -38,7 +38,7 @@
   --sans:"Cifras", "Almarai", system-ui, -apple-system, sans-serif;
   --ancho:70rem;
   --medida:42rem;
-  --radio:0;            /* la marca se caracteriza por vértices rectos */
+  --radio:12px;
   /* Escala tipográfica. Cada nivel es más chico que el anterior, en celular
      y en escritorio; para ajustar la jerarquía se toca solo acá. */
   --t-h1a:2.75rem;     /* POROTO */
@@ -137,8 +137,11 @@ h1{
   max-width:26ch;
   margin:0;
 }
-/* Isotipo en baldosa cuadrada, como los íconos del manual */
+/* Isotipo en baldosa cuadrada, como los íconos del manual. Es el único
+   elemento en ángulo recto: la página usa esquinas redondeadas, pero el
+   encuadre de la marca respeta sus vértices rectos. */
 .marca{
+  border-radius:0;
   display:grid;
   place-items:center;
   width:3.25rem;
@@ -199,10 +202,13 @@ h1{
 
 /* ---------- Rasgos ---------- */
 .rasgos{display:grid;gap:.75rem;margin:0 0 3.5rem;}
+/* Título y descripción forman un bloque a la derecha del ícono: el título
+   centrado con el ícono, la descripción justo debajo y alineada con él. */
 .rasgo{
   display:grid;
   grid-template-columns:auto 1fr;
-  column-gap:.875rem;
+  column-gap:1rem;
+  row-gap:.25rem;
   align-items:center;
   background:var(--blanco);
   border-radius:var(--radio);
@@ -213,7 +219,7 @@ h1{
   grid-row:1;
   width:2.5rem;
   height:2.5rem;
-  border-radius:0;
+  border-radius:50%;
   background:var(--verde);
   display:grid;
   place-items:center;
@@ -229,10 +235,11 @@ h1{
 }
 .rasgo h3{grid-column:2;grid-row:1;margin:0;}
 .rasgo p{
-  grid-column:1 / -1;
+  grid-column:2;
+  grid-row:2;
   font-weight:300;
   font-size:var(--t-chico);
-  margin:.625rem 0 0;
+  margin:0;
 }
 
 /* ---------- Ficha técnica ---------- */
@@ -324,7 +331,7 @@ h1{
   top:.52em;
   width:.4375rem;
   height:.4375rem;
-  border-radius:0;
+  border-radius:50%;
   background:var(--verde);
 }
 .lista__hereda{font-weight:700;}
@@ -352,7 +359,7 @@ h1{
 .paso__num{
   width:2.5rem;
   height:2.5rem;
-  border-radius:0;
+  border-radius:50%;
   background:var(--verde);
   color:var(--blanco);
   font-family:var(--display);
@@ -368,7 +375,7 @@ h1{
 .cta{
   background:var(--verde);
   color:var(--blanco);
-  border-radius:var(--radio);
+  border-radius:1rem;
   padding:2rem 1.5rem;
 }
 .cta h2{color:var(--blanco);font-size:var(--t-cta);margin:0 0 .75rem;}
