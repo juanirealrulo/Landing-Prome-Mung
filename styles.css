@@ -1,19 +1,41 @@
 /* ==========================================================================
    Prome AgroNegocios · Poroto mung · Propuesta comercial (versión Simón)
-   Paleta y tipografías del Manual de Estilo, sep 2026.
+   Paleta del Manual de Estilo, sep 2026.
+   Tipografías: Archivo para títulos y cifras, Almarai para el cuerpo.
+   Ambas bajo licencia OFL, alojadas en /fonts.
    ========================================================================== */
+
+/* ---------- Almarai: cuerpo de texto ---------- */
+@font-face{font-family:"Almarai";font-weight:300;font-style:normal;font-display:swap;src:url("fonts/almarai-latin-300-normal.woff2") format("woff2");}
+@font-face{font-family:"Almarai";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/almarai-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Almarai";font-weight:700;font-style:normal;font-display:swap;src:url("fonts/almarai-latin-700-normal.woff2") format("woff2");}
+
+/* ---------- Archivo: títulos ---------- */
+@font-face{font-family:"Archivo";font-weight:300;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-300-normal.woff2") format("woff2");}
+@font-face{font-family:"Archivo";font-weight:400;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Archivo";font-weight:700;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:"Archivo";font-weight:800;font-style:normal;font-display:swap;src:url("fonts/archivo-latin-800-normal.woff2") format("woff2");}
+
+/* ---------- Cifras: los dígitos de Archivo, nada más ----------
+   Los números de Almarai no están bien dibujados. Esta familia contiene solo
+   los caracteres 0 a 9 de Archivo, y el cuerpo de texto la pone primera: el
+   navegador elige carácter por carácter, así que todo número sale en Archivo
+   y todo lo demás en Almarai, sin marcar nada a mano en el HTML. */
+@font-face{font-family:"Cifras";font-weight:300;font-display:swap;unicode-range:U+0030-0039;src:url("fonts/archivo-latin-300-normal.woff2") format("woff2");}
+@font-face{font-family:"Cifras";font-weight:400;font-display:swap;unicode-range:U+0030-0039;src:url("fonts/archivo-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Cifras";font-weight:700;font-display:swap;unicode-range:U+0030-0039;src:url("fonts/archivo-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:"Cifras";font-weight:800;font-display:swap;unicode-range:U+0030-0039;src:url("fonts/archivo-latin-800-normal.woff2") format("woff2");}
 
 :root{
   --verde:#30792f;
   --verde-vivo:#4CAF50;
-  --verde-agua:#e7efe6;   /* tinte del verde para paneles sutiles */
   --negro:#1d231c;
   --hueso:#e1dfd9;
   --blanco:#ffffff;
   --wa:#25D366;           /* verde de WhatsApp, solo para sus botones */
   --wa-borde:#1da851;
-  --serif:"Libre Baskerville", Georgia, serif;
-  --sans:"Almarai", system-ui, -apple-system, sans-serif;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sans:"Cifras", "Almarai", system-ui, -apple-system, sans-serif;
   --ancho:70rem;
   --medida:42rem;
   --radio:12px;
@@ -41,26 +63,26 @@ img{max-width:100%;height:auto;display:block;}
 }
 
 h2{
-  font-family:var(--serif);
-  font-weight:700;
+  font-family:var(--display);
+  font-weight:800;
   font-size:1.75rem;
-  line-height:1.25;
+  line-height:1.2;
+  letter-spacing:-.01em;
   color:var(--verde);
-  margin:0 0 .5rem;
+  margin:0 0 1.75rem;
 }
 h3{
-  font-family:var(--serif);
+  font-family:var(--display);
   font-weight:700;
-  font-size:1.1875rem;
+  font-size:1.125rem;
   line-height:1.3;
-  color:var(--verde);
-  margin:0 0 .375rem;
+  color:var(--negro);
+  margin:0 0 .25rem;
 }
 .lead{
-  font-size:1.0625rem;
-  color:rgba(29,35,28,.72);
+  color:rgba(29,35,28,.75);
   max-width:var(--medida);
-  margin:0 0 2rem;
+  margin:-1rem 0 2rem;
 }
 
 /* ---------- Portada ---------- */
@@ -73,7 +95,8 @@ h3{
   margin:0 0 2rem;
 }
 .volanta{
-  font-weight:800;
+  font-family:var(--display);
+  font-weight:700;
   font-size:.8125rem;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -81,22 +104,21 @@ h3{
   margin:0 0 .5rem;
 }
 h1{
-  font-family:var(--sans);
+  font-family:var(--display);
   line-height:.95;
   text-transform:uppercase;
-  margin:0 0 1rem;
   color:var(--negro);
+  margin:0 0 1rem;
 }
 .h1__fino,.h1__grueso{display:block;}
-.h1__fino{font-weight:300;font-size:2.75rem;letter-spacing:.01em;}
-.h1__grueso{font-weight:800;font-size:3.25rem;color:var(--verde);letter-spacing:-.005em;}
+.h1__fino{font-weight:300;font-size:2.75rem;}
+.h1__grueso{font-weight:800;font-size:3.25rem;color:var(--verde);letter-spacing:-.01em;}
 .bajada{
-  font-size:1.0625rem;
-  color:rgba(29,35,28,.72);
-  max-width:24ch;
+  color:rgba(29,35,28,.75);
+  max-width:26ch;
   margin:0;
 }
-.logo{width:6.5rem;height:auto;}
+.logo{width:6.5rem;}
 
 .portada__foto{
   width:100%;
@@ -106,120 +128,107 @@ h1{
   margin:0 0 1rem;
 }
 
-/* Tres datos duros bajo la foto */
+/* Tres datos: en tres columnas también en el celular, porque son cortos
+   y apilados ocupaban una pantalla entera. */
 .datos{
   list-style:none;
-  margin:0 0 1.75rem;
+  margin:0;
   padding:0;
   display:grid;
-  gap:.75rem;
+  /* la del medio es más ancha porque "Sep–Feb" no se puede cortar */
+  grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);
+  gap:.5rem;
 }
 .datos li{
   border:1px solid rgba(29,35,28,.14);
   border-radius:var(--radio);
-  padding:1rem 1.125rem;
-  background:var(--blanco);
+  padding:.625rem .75rem .75rem;
 }
 .datos b{
   display:block;
+  font-family:var(--display);
   font-weight:800;
-  font-size:1.5rem;
+  font-size:clamp(1.0625rem, 5.2vw, 1.25rem);   /* escala para que "Sep–Feb" entre en 320px */
   line-height:1.1;
   color:var(--verde);
-  text-transform:uppercase;
+  white-space:nowrap;
 }
 .datos span{
   display:block;
-  font-size:.875rem;
-  color:rgba(29,35,28,.68);
-  margin-top:.25rem;
-}
-.nucleo{
-  font-weight:800;
-  font-size:1.0625rem;
-  color:var(--negro);
-  max-width:var(--medida);
-  margin:0;
+  font-size:.8125rem;
+  line-height:1.35;
+  color:rgba(29,35,28,.7);
+  margin-top:.3rem;
 }
 
 /* ---------- Secciones ---------- */
 .seccion{padding:3.25rem 0;}
 .seccion--hueso{background:var(--hueso);}
 
-/* ---------- Rasgos, grilla 2x2 ---------- */
-.rasgos{display:grid;gap:.875rem;margin:0 0 2.75rem;}
+/* ---------- Rasgos ---------- */
+.rasgos{display:grid;gap:.75rem;margin:0 0 2.75rem;}
 .rasgo{
   display:grid;
   grid-template-columns:auto 1fr;
-  grid-template-rows:auto 1fr;   /* la fila del título se ajusta; el sobrante va abajo */
-  column-gap:1rem;
-  row-gap:.25rem;
-  align-items:start;
+  column-gap:.875rem;
+  align-items:center;
   background:var(--blanco);
   border-radius:var(--radio);
-  padding:1.25rem;
+  padding:1.125rem 1.25rem;
 }
 .rasgo__ico{
-  grid-row:1 / span 2;
-  width:2.75rem;
-  height:2.75rem;
+  grid-column:1;
+  grid-row:1;
+  width:2.5rem;
+  height:2.5rem;
   border-radius:50%;
   background:var(--verde);
   display:grid;
   place-items:center;
 }
 .rasgo__ico svg{
-  width:1.375rem;
-  height:1.375rem;
+  width:1.25rem;
+  height:1.25rem;
   fill:none;
   stroke:var(--blanco);
   stroke-width:2;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-.rasgo h3{margin:.3rem 0 0;}
-.rasgo p{font-weight:300;font-size:.9375rem;margin:0;}
+.rasgo h3{grid-column:2;grid-row:1;margin:0;}
+.rasgo p{
+  grid-column:1 / -1;
+  font-weight:300;
+  font-size:.9375rem;
+  margin:.625rem 0 0;
+}
 
 /* ---------- Ficha técnica ---------- */
-.ficha__titulo{
-  font-size:1.375rem;
-  color:var(--negro);
-  margin:0 0 1rem;
-}
+.ficha__titulo{font-size:1.25rem;margin:0 0 .875rem;}
 .ficha{
   width:100%;
   border-collapse:collapse;
   background:var(--blanco);
   border-radius:var(--radio);
   overflow:hidden;
-  margin:0 0 2.5rem;
 }
 .ficha th,.ficha td{
-  padding:.9375rem 1.25rem;
+  padding:.875rem 1.25rem;
   border-bottom:1px solid rgba(29,35,28,.1);
   vertical-align:top;
   font-size:.9375rem;
+  text-align:left;
 }
 .ficha tr:last-child th,.ficha tr:last-child td{border-bottom:0;}
-.ficha th{
-  text-align:left;
-  font-weight:700;
-  color:rgba(29,35,28,.7);
-  width:50%;
-}
-.ficha td{text-align:right;font-weight:400;}
-
-/* ---------- Panel sutil ---------- */
-.panel{
-  background:var(--verde-agua);
-  border-radius:var(--radio);
-  padding:1.5rem 1.5rem;
-}
-.seccion--hueso .panel{background:var(--blanco);}
-.panel p{max-width:62ch;margin:0;}
+.ficha th{font-weight:700;color:rgba(29,35,28,.68);}
+/* En el celular cada fila se apila: rótulo arriba, valor abajo */
+.ficha tr{display:block;border-bottom:1px solid rgba(29,35,28,.1);padding:.8125rem 1.125rem;}
+.ficha tr:last-child{border-bottom:0;}
+.ficha th,.ficha td{display:block;padding:0;border:0;}
+.ficha th{font-size:.8125rem;margin-bottom:.125rem;}
 
 /* ---------- Planes ---------- */
-.planes{display:grid;gap:1.125rem;margin:0 0 2rem;}
+.planes{display:grid;gap:1rem;}
 .plan{
   display:flex;
   flex-direction:column;
@@ -228,69 +237,48 @@ h1{
   overflow:hidden;
   background:var(--blanco);
 }
-/* Canje en verde, los dos pagos en verde casi negro: marca que el canje
-   es otra especie de plan, una forma de pago y no un escalón de precio. */
-.plan__cab{background:var(--negro);color:var(--blanco);padding:1.25rem 1.375rem 1.125rem;}
+/* Canje en verde, los dos pagos en verde casi negro: el canje es otra
+   especie de plan, una forma de pago y no un escalón de precio. */
+.plan__cab{background:var(--negro);color:var(--blanco);padding:1.125rem 1.375rem 1rem;}
 .plan--canje .plan__cab{background:var(--verde);}
 .plan__tipo{
-  font-weight:800;
+  font-family:var(--display);
+  font-weight:700;
   font-size:.75rem;
   letter-spacing:.08em;
   text-transform:uppercase;
   opacity:.85;
-  margin:0 0 .25rem;
+  margin:0 0 .125rem;
 }
 .plan__cab h3{
-  font-family:var(--sans);
   font-weight:800;
   font-size:1.75rem;
   line-height:1.1;
   color:var(--blanco);
   margin:0;
 }
-.plan__cuerpo{
-  padding:1.375rem;
-  flex:1 1 auto;
-  display:flex;
-  flex-direction:column;
-}
+.plan__cuerpo{padding:1.25rem 1.375rem 1.375rem;flex:1 1 auto;}
 .plan h4{
-  font-family:var(--sans);
-  font-weight:800;
-  font-size:.9375rem;
-  color:var(--negro);
-  margin:0 0 .75rem;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.875rem;
+  color:var(--verde);
+  margin:0 0 .625rem;
 }
-.plan__pie{
-  margin-top:auto;
-  padding-top:1.25rem;
-  border-top:1px solid rgba(29,35,28,.12);
-}
-.plan__cuerpo .lista{margin-bottom:1.375rem;}
-.plan .plan__pie h4{color:var(--verde);}
-.plan__valor{
-  font-weight:800;
-  font-size:1.25rem;
-  line-height:1.25;
-  margin:0 0 .5rem;
-}
-.plan__nota{font-size:.875rem;color:rgba(29,35,28,.65);margin:0;}
+.plan .plan__sub{margin-top:1.25rem;padding-top:1.125rem;border-top:1px solid rgba(29,35,28,.12);}
+.plan__cuerpo p{font-size:.9375rem;margin:0 0 .5rem;}
+.plan__nota{color:rgba(29,35,28,.65);font-size:.875rem;}
 
 .lista{list-style:none;margin:0;padding:0;}
-.lista li{
-  position:relative;
-  padding-left:1.25rem;
-  margin-bottom:.5rem;
-  line-height:1.45;
-}
+.lista li{position:relative;padding-left:1.125rem;margin-bottom:.4rem;line-height:1.45;}
 .lista li:last-child{margin-bottom:0;}
 .lista li::before{
   content:"";
   position:absolute;
   left:0;
-  top:.5em;
-  width:.5rem;
-  height:.5rem;
+  top:.52em;
+  width:.4375rem;
+  height:.4375rem;
   border-radius:50%;
   background:var(--verde);
 }
@@ -301,34 +289,35 @@ h1{
 .paso{
   position:relative;
   display:grid;
-  grid-template-columns:3rem 1fr;
-  column-gap:1.25rem;
-  padding-bottom:2rem;
+  grid-template-columns:2.5rem 1fr;
+  column-gap:1rem;
+  align-items:start;
+  padding-bottom:1.5rem;
 }
 .paso:last-child{padding-bottom:0;}
-/* línea que une cada círculo con el siguiente */
 .paso:not(:last-child)::before{
   content:"";
   position:absolute;
-  left:calc(1.5rem - 1px);
-  top:3.25rem;
+  left:calc(1.25rem - 1px);
+  top:2.75rem;
   bottom:.25rem;
   width:2px;
   background:rgba(48,121,47,.25);
 }
 .paso__num{
-  width:3rem;
-  height:3rem;
+  width:2.5rem;
+  height:2.5rem;
   border-radius:50%;
   background:var(--verde);
   color:var(--blanco);
+  font-family:var(--display);
   font-weight:800;
-  font-size:1.125rem;
+  font-size:1rem;
   display:grid;
   place-items:center;
 }
-.paso h3{color:var(--negro);margin:.55rem 0 .25rem;}
-.paso p{font-weight:300;color:rgba(29,35,28,.78);margin:0;}
+.paso p{margin:.45rem 0 0;font-weight:300;}
+.paso b{font-family:var(--display);font-weight:700;color:var(--negro);}
 
 /* ---------- Llamado final ---------- */
 .cta{
@@ -339,27 +328,28 @@ h1{
 }
 .cta h2{color:var(--blanco);font-size:1.625rem;margin:0 0 .75rem;}
 .cta p{max-width:48ch;}
-.cta__firma{margin:1.5rem 0 1.5rem;line-height:1.5;}
-.cta__firma b{font-weight:800;}
+.cta__firma{margin:1.5rem 0;line-height:1.45;}
+.cta__firma b{font-family:var(--display);font-weight:800;}
 .cta__tel{opacity:.9;}
 
-/* Botón de WhatsApp: su verde, su ícono */
-.boton-wa{
+/* Botones de WhatsApp: su verde, su ícono, texto oscuro para que se lea.
+   Blanco sobre #25D366 da 2:1; oscuro da casi 9:1. */
+.boton-wa,.fab{
   display:inline-flex;
   align-items:center;
-  gap:.625rem;
-  font-family:var(--sans);
-  font-weight:800;
-  font-size:1.0625rem;
+  gap:.5rem;
+  font-family:var(--display);
+  font-weight:700;
   line-height:1;
   text-decoration:none;
   color:var(--negro);
   background:var(--wa);
-  border:2px solid var(--wa);
+  border:2px solid var(--wa-borde);
   border-radius:999px;
-  padding:.875rem 1.5rem .875rem 1.125rem;
 }
-.boton-wa svg{width:1.5rem;height:1.5rem;fill:currentColor;}
+.boton-wa{font-size:1.0625rem;padding:.875rem 1.5rem .875rem 1.125rem;}
+.boton-wa svg,.fab svg{fill:currentColor;flex:none;}
+.boton-wa svg{width:1.5rem;height:1.5rem;}
 .boton-wa:focus-visible{outline:3px solid var(--blanco);outline-offset:3px;}
 
 .legal{
@@ -379,32 +369,34 @@ h1{
 }
 .pie p{margin:0;}
 
-/* ---------- Botón flotante de WhatsApp ---------- */
+/* ---------- Botón flotante: vuelve al chat de WhatsApp ---------- */
 .fab{
   position:fixed;
-  right:1.125rem;
-  bottom:calc(1.125rem + env(safe-area-inset-bottom));
+  right:1rem;
+  bottom:calc(1rem + env(safe-area-inset-bottom));
   z-index:20;
-  width:3.625rem;
-  height:3.625rem;
-  border-radius:50%;
-  background:var(--wa);
-  border:2px solid var(--wa-borde);
-  color:var(--blanco);
-  display:grid;
-  place-items:center;
+  font-size:1.0625rem;
+  padding:.8125rem 1.25rem .8125rem .9375rem;
   box-shadow:0 6px 18px rgba(29,35,28,.28);
   transition:transform .22s ease, opacity .22s ease;
 }
-.fab svg{width:2rem;height:2rem;fill:currentColor;}
+.fab svg{width:1.625rem;height:1.625rem;}
 .fab:focus-visible{outline:3px solid var(--negro);outline-offset:3px;}
-.fab[hidden]{display:grid;opacity:0;transform:scale(.6);pointer-events:none;}
+.fab[hidden]{display:inline-flex;opacity:0;transform:translateY(1rem);pointer-events:none;}
 
 /* ---------- Pantallas medianas ---------- */
 @media (min-width:40rem){
-  .datos{grid-template-columns:repeat(3,1fr);gap:1rem;}
-  .rasgos{grid-template-columns:repeat(2,1fr);gap:1.125rem;}
+  .datos{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+  .datos li{padding:1rem 1.125rem;}
+  .datos b{font-size:1.75rem;}
+  .datos span{font-size:.875rem;}
   .logo{width:8.5rem;}
+  /* ficha como tabla de dos columnas */
+  .ficha tr{display:table-row;padding:0;border:0;}
+  .ficha th,.ficha td{display:table-cell;padding:.875rem 1.25rem;border-bottom:1px solid rgba(29,35,28,.1);}
+  .ficha tr:last-child th,.ficha tr:last-child td{border-bottom:0;}
+  .ficha th{font-size:.9375rem;width:45%;margin:0;}
+  .ficha td{text-align:right;}
 }
 
 /* ---------- Pantallas grandes ---------- */
@@ -415,29 +407,18 @@ h1{
   .h1__fino{font-size:4rem;}
   .h1__grueso{font-size:4.75rem;}
   .logo{width:11rem;}
-  h2{font-size:2.125rem;}
+  .bajada{max-width:34ch;font-size:1.1875rem;}
+  h2{font-size:2.25rem;}
   .seccion{padding:4.5rem 0;}
-  .cta{padding:2.75rem 2.75rem;}
+  .rasgos{grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .rasgo{align-items:start;}
+  .cta{padding:2.75rem;}
   .cta h2{font-size:2rem;}
-  .fab{right:1.75rem;bottom:calc(1.75rem + env(safe-area-inset-bottom));width:4rem;height:4rem;}
-  .fab svg{width:2.25rem;height:2.25rem;}
+  .fab{right:1.75rem;bottom:calc(1.75rem + env(safe-area-inset-bottom));}
 }
 
 @media (min-width:60rem){
-  /* Subgrid: las tres tarjetas comparten cuatro filas (cabecera, "Incluye",
-     lista, pie). Así el pie de valor arranca a la misma altura en las tres
-     aunque una tenga una línea de más. */
-  .planes{
-    grid-template-columns:repeat(3,1fr);
-    grid-template-rows:auto auto 1fr auto;
-    column-gap:1.25rem;
-    row-gap:0;
-  }
-  .plan{display:grid;grid-row:span 4;grid-template-rows:subgrid;}
-  .plan__cuerpo{display:contents;}
-  .plan__cuerpo > h4{padding:1.375rem 1.375rem 0;}
-  .plan__cuerpo > .lista{padding:0 1.375rem;margin-bottom:1.375rem;}
-  .plan__pie{margin:0 1.375rem 1.375rem;}
+  .planes{grid-template-columns:repeat(3,1fr);gap:1.25rem;}
 }
 
 @media (prefers-reduced-motion:reduce){

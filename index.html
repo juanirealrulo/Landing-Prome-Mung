@@ -6,13 +6,12 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#30792f">
 <title>Poroto mung · Propuesta comercial · Prome AgroNegocios</title>
-<meta name="description" content="Una alternativa de ciclo corto para sumar a la rotación. Programas de siembra con compromiso de compra de la producción.">
+<meta name="description" content="Una alternativa para los lotes que quedaron disponibles en la rotación. Tres programas con compra de la producción.">
 <meta property="og:title" content="Poroto mung · Propuesta comercial">
-<meta property="og:description" content="Una alternativa de ciclo corto para sumar a la rotación.">
+<meta property="og:description" content="Una alternativa para los lotes que quedaron disponibles en la rotación.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/almarai-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,22 +19,15 @@
 <!-- Iconos: Tabler Icons (https://tabler.io/icons) - MIT License, Copyright (c) 2020-2024 Paweł Kuna -->
 <svg class="simbolos" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <symbol id="i-reloj" viewBox="0 0 24 24">
-      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-      <path d="M12 7v5l3 3" />
-    </symbol>
     <symbol id="i-gota" viewBox="0 0 24 24">
       <path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546" />
     </symbol>
-    <symbol id="i-temperatura" viewBox="0 0 24 24">
-      <path d="M4 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 1 0 -4 0v8.5" />
-      <path d="M4 9h4" />
-      <path d="M13 16a4 4 0 1 0 0 -8a4.07 4.07 0 0 0 -1 .124" />
-      <path d="M13 3v1" />
-      <path d="M21 12h1" />
-      <path d="M13 20v1" />
-      <path d="M19.4 5.6l-.7 .7" />
-      <path d="M18.7 17.7l.7 .7" />
+    <symbol id="i-cobertura" viewBox="0 0 24 24">
+      <path d="M2 9a10 10 0 1 0 20 0" />
+      <path d="M12 19a10 10 0 0 1 10 -10" />
+      <path d="M2 9a10 10 0 0 1 10 10" />
+      <path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" />
+      <path d="M9.01 11.5a9.7 9.7 0 0 1 2.99 -7.5" />
     </symbol>
     <symbol id="i-tractor" viewBox="0 0 24 24">
       <path d="M3 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -57,7 +49,7 @@
       <div>
         <p class="volanta">Propuesta comercial</p>
         <h1><span class="h1__fino">Poroto</span> <span class="h1__grueso">Mung</span></h1>
-        <p class="bajada">Una alternativa de ciclo corto para sumar a la rotación.</p>
+        <p class="bajada">Una alternativa para los lotes que quedaron disponibles en la rotación.</p>
       </div>
       <img class="logo" src="img/logo-prome.webp" width="344" height="172" alt="Prome AgroNegocios">
     </div>
@@ -65,12 +57,10 @@
     <img class="portada__foto" src="img/granos-mano.webp" width="1130" height="696" alt="Granos de poroto mung en la palma de una mano">
 
     <ul class="datos">
-      <li><b>~90 días</b><span>Ciclo corto</span></li>
-      <li><b>Sep – Feb</b><span>Ventana de siembra</span></li>
-      <li><b>300.000</b><span>Plantas por hectárea, objetivo</span></li>
+      <li><b>~90</b><span>días de ciclo</span></li>
+      <li><b>Sep–Feb</b><span>ventana de siembra</span></li>
+      <li><b>3</b><span>programas de siembra</span></li>
     </ul>
-
-    <p class="nucleo">Programas de siembra con compromiso de compra de la producción.</p>
   </div>
 </header>
 
@@ -79,28 +69,22 @@
   <section id="por-que" class="seccion seccion--hueso">
     <div class="col">
       <h2>¿Por qué poroto mung?</h2>
-      <p class="lead">Características agronómicas y de manejo consideradas en nuestra propuesta.</p>
 
       <div class="rasgos">
         <div class="rasgo">
-          <span class="rasgo__ico"><svg aria-hidden="true" focusable="false"><use href="#i-reloj"></use></svg></span>
-          <h3>Ciclo corto</h3>
-          <p>Aproximadamente 90 días.</p>
-        </div>
-        <div class="rasgo">
           <span class="rasgo__ico"><svg aria-hidden="true" focusable="false"><use href="#i-gota"></use></svg></span>
-          <h3>Bajo consumo de agua</h3>
-          <p>Buena eficiencia hídrica para planteos de primavera y verano.</p>
+          <h3>Eficiente en agua</h3>
+          <p>Buena eficiencia hídrica y adaptación a altas temperaturas.</p>
         </div>
         <div class="rasgo">
-          <span class="rasgo__ico"><svg aria-hidden="true" focusable="false"><use href="#i-temperatura"></use></svg></span>
-          <h3>Temperatura</h3>
-          <p>Buena adaptación a condiciones de altas temperaturas.</p>
+          <span class="rasgo__ico"><svg aria-hidden="true" focusable="false"><use href="#i-cobertura"></use></svg></span>
+          <h3>Cubre el suelo en 20 días</h3>
+          <p>Cierra el surco rápido y le compite el lugar a la maleza.</p>
         </div>
         <div class="rasgo">
           <span class="rasgo__ico"><svg aria-hidden="true" focusable="false"><use href="#i-tractor"></use></svg></span>
           <h3>Maquinaria convencional</h3>
-          <p>Siembra y cosecha con equipos convencionales.</p>
+          <p>Siembra y cosecha con los equipos que ya tenés.</p>
         </div>
       </div>
 
@@ -117,18 +101,13 @@
           <tr><th scope="row">Rinde de referencia</th><td>850 a 1.200 kg/ha</td></tr>
         </tbody>
       </table>
-
-      <div class="panel">
-        <h3>Una alternativa para lotes disponibles en la rotación</h3>
-        <p>Por su ciclo corto y su ventana de siembra amplia, el mung puede incorporarse en lotes que hayan quedado disponibles, evaluando cada caso según zona, fecha y condición del perfil.</p>
-      </div>
     </div>
   </section>
 
   <section id="propuesta" class="seccion">
     <div class="col">
       <h2>Nuestra propuesta</h2>
-      <p class="lead">Tres modalidades para elegir según el nivel de servicio y acompañamiento que busque cada productor.</p>
+      <p class="lead">Tres modalidades según el nivel de servicio y acompañamiento que busques. Las tres incluyen el compromiso de compra de la producción.</p>
 
       <div class="planes">
         <article class="plan plan--canje">
@@ -140,15 +119,12 @@
             <h4>Incluye</h4>
             <ul class="lista">
               <li>Semilla</li>
-              <li>Compromiso de compra de la producción</li>
             </ul>
-            <div class="plan__pie">
-            <h4>Modalidad comercial</h4>
-            <p class="plan__valor">Canje 2x1</p>
+            <h4 class="plan__sub">Cómo se paga</h4>
+            <p>A cosecha devolvés dos kilos de grano por cada kilo de semilla.</p>
             <!-- PAGARÉ: se había decidido no mencionarlo en la página. Viene del
                  material de Simón. Para sacarlo, borrar el párrafo de abajo. -->
             <p class="plan__nota">Se instrumenta además un pagaré por USD 25/ha.</p>
-            </div>
           </div>
         </article>
 
@@ -162,12 +138,7 @@
             <ul class="lista">
               <li>Semilla</li>
               <li>Acompañamiento técnico</li>
-              <li>Compromiso de compra de la producción</li>
             </ul>
-            <div class="plan__pie">
-            <h4>Valor del programa</h4>
-            <p class="plan__valor">USD 40 por hectárea</p>
-            </div>
           </div>
         </article>
 
@@ -184,17 +155,8 @@
               <li>Biológico para dos aplicaciones</li>
               <li>Seguimiento técnico más cercano, con visita</li>
             </ul>
-            <div class="plan__pie">
-            <h4>Valor del programa</h4>
-            <p class="plan__valor">USD 60 por hectárea</p>
-            </div>
           </div>
         </article>
-      </div>
-
-      <div class="panel">
-        <h3>En las tres alternativas</h3>
-        <p>El objetivo es que el productor cuente con una propuesta simple para incorporar el cultivo y con una salida comercial prevista para la producción.</p>
       </div>
     </div>
   </section>
@@ -202,38 +164,21 @@
   <section id="avanzamos" class="seccion seccion--hueso">
     <div class="col">
       <h2>¿Cómo avanzamos?</h2>
-      <p class="lead">Un esquema simple, desde la evaluación del lote hasta la comercialización.</p>
 
       <ol class="pasos">
-        <li class="paso">
-          <span class="paso__num" aria-hidden="true">1</span>
-          <div><h3>Evaluamos el lote</h3><p>Zona, fecha disponible, antecesor y condiciones generales del planteo.</p></div>
-        </li>
-        <li class="paso">
-          <span class="paso__num" aria-hidden="true">2</span>
-          <div><h3>Elegimos el programa</h3><p>Canje 2x1, programa de USD 40/ha o de USD 60/ha, según la alternativa que mejor encaje.</p></div>
-        </li>
-        <li class="paso">
-          <span class="paso__num" aria-hidden="true">3</span>
-          <div><h3>Coordinamos la siembra</h3><p>Entrega de semilla y definición de los aspectos operativos del programa.</p></div>
-        </li>
-        <li class="paso">
-          <span class="paso__num" aria-hidden="true">4</span>
-          <div><h3>Acompañamos el ciclo</h3><p>Los programas de USD 40 y USD 60 por hectárea incluyen acompañamiento técnico.</p></div>
-        </li>
-        <li class="paso">
-          <span class="paso__num" aria-hidden="true">5</span>
-          <div><h3>Compra de la producción</h3><p>La propuesta contempla compromiso de compra de la producción, sujeto a las condiciones acordadas.</p></div>
-        </li>
+        <li class="paso"><span class="paso__num" aria-hidden="true">1</span><p><b>Evaluamos tu lote</b> según zona, fecha disponible, antecesor y condición del perfil.</p></li>
+        <li class="paso"><span class="paso__num" aria-hidden="true">2</span><p><b>Elegís el programa</b> que mejor encaje con tu planteo.</p></li>
+        <li class="paso"><span class="paso__num" aria-hidden="true">3</span><p><b>Te entregamos la semilla</b> y coordinamos la siembra.</p></li>
+        <li class="paso"><span class="paso__num" aria-hidden="true">4</span><p><b>Compramos la producción</b> al cierre del ciclo, según las condiciones acordadas.</p></li>
       </ol>
 
-      <div class="cta" id="cta">
+      <div class="cta">
         <h2>¿Querés evaluar el mung para esta campaña?</h2>
-        <p>Escribinos y vemos juntos qué alternativa puede adaptarse mejor a tu planteo.</p>
-        <p class="cta__firma"><b>Simón</b> · Prome AgroNegocios<br><span class="cta__tel">+54 9 351 862-9374</span></p>
+        <p>Contanos la zona y la superficie y armamos la propuesta.</p>
+        <p class="cta__firma"><b>Simón</b><br>Prome AgroNegocios<br><span class="cta__tel">+54 9 351 862-9374</span></p>
         <a class="boton-wa" id="cta-wa" href="#" data-wa>
           <svg aria-hidden="true" focusable="false"><use href="#i-whatsapp"></use></svg>
-          Escribile a Simón
+          Volver al chat
         </a>
       </div>
 
@@ -245,12 +190,13 @@
 
 <footer class="pie">
   <div class="col">
-    <p>Prome AgroNegocios · Poroto mung</p>
+    <p>Prome AgroNegocios</p>
   </div>
 </footer>
 
-<a class="fab" id="fab" href="#" data-wa aria-label="Escribile a Simón por WhatsApp" title="Escribile a Simón por WhatsApp">
+<a class="fab" id="fab" href="#" data-wa aria-label="Volver al chat de WhatsApp">
   <svg aria-hidden="true" focusable="false"><use href="#i-whatsapp"></use></svg>
+  <span>Volver</span>
 </a>
 
 <script src="script.js"></script>
