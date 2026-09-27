@@ -38,7 +38,7 @@
   --sans:"Cifras", "Almarai", system-ui, -apple-system, sans-serif;
   --ancho:70rem;
   --medida:42rem;
-  --radio:12px;
+  --radio:0;            /* la marca se caracteriza por vértices rectos */
   /* Escala tipográfica. Cada nivel es más chico que el anterior, en celular
      y en escritorio; para ajustar la jerarquía se toca solo acá. */
   --t-h1a:2.75rem;     /* POROTO */
@@ -137,7 +137,15 @@ h1{
   max-width:26ch;
   margin:0;
 }
-.logo{width:auto;height:4.75rem;}   /* isotipo vertical: manda el alto */
+/* Isotipo en baldosa cuadrada, como los íconos del manual */
+.marca{
+  display:grid;
+  place-items:center;
+  width:3.25rem;
+  height:3.25rem;
+  background:var(--verde);
+}
+.marca img{width:auto;height:2.25rem;max-width:none;}
 
 .portada__foto{
   width:100%;
@@ -147,11 +155,10 @@ h1{
   margin:0 0 1rem;
 }
 
-/* Tres datos: en tres columnas también en el celular, porque son cortos
-   y apilados ocupaban una pantalla entera. */
-/* En el celular los tres datos van en una sola caja, uno por renglón, con la
-   cifra a la izquierda y el rótulo a la derecha: se leen de corrido y ocupan
-   poco alto. A partir de 40rem pasan a tres tarjetas. */
+/* Datos de portada. En el celular, una caja con un dato por renglón: rótulo a
+   la izquierda y valor alineado a la derecha. Así los dos bordes quedan
+   parejos aunque las cifras tengan largos muy distintos ("3" y "Sep–Feb").
+   A partir de 40rem pasan a tres tarjetas, con el rótulo arriba. */
 .datos{
   list-style:none;
   margin:0;
@@ -161,11 +168,11 @@ h1{
   border-radius:var(--radio);
 }
 .datos li{
-  display:grid;
-  grid-template-columns:6.25rem 1fr;
+  display:flex;
+  justify-content:space-between;
   align-items:baseline;
-  column-gap:.75rem;
-  padding:.75rem 1rem;
+  gap:1rem;
+  padding:.8125rem 1rem;
   border-bottom:1px solid rgba(29,35,28,.1);
 }
 .datos li:last-child{border-bottom:0;}
@@ -177,6 +184,7 @@ h1{
   line-height:1.1;
   color:var(--verde);
   white-space:nowrap;
+  text-align:right;
 }
 .datos span{
   display:block;
@@ -205,7 +213,7 @@ h1{
   grid-row:1;
   width:2.5rem;
   height:2.5rem;
-  border-radius:50%;
+  border-radius:0;
   background:var(--verde);
   display:grid;
   place-items:center;
@@ -286,10 +294,23 @@ h1{
   font-family:var(--display);
   font-weight:700;
   font-size:var(--t-rotulo);
-  color:var(--verde);
+  color:var(--negro);
   margin:0 0 .625rem;
 }
-.plan .plan__sub{margin-top:1.25rem;padding-top:1.125rem;border-top:1px solid rgba(29,35,28,.12);}
+.plan__pie{
+  margin-top:1.25rem;
+  padding-top:1.125rem;
+  border-top:1px solid rgba(29,35,28,.12);
+}
+.plan .plan__pie h4{color:var(--verde);}
+/* doble clase: tiene que ganarle a ".plan__cuerpo p", que la achicaba */
+.plan__cuerpo .plan__valor{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:var(--t-titulo);
+  line-height:1.25;
+  color:var(--negro);
+}
 .plan__cuerpo p{font-size:var(--t-chico);margin:0 0 .5rem;}
 .plan__nota{color:rgba(29,35,28,.65);font-size:var(--t-rotulo);}
 
@@ -303,7 +324,7 @@ h1{
   top:.52em;
   width:.4375rem;
   height:.4375rem;
-  border-radius:50%;
+  border-radius:0;
   background:var(--verde);
 }
 .lista__hereda{font-weight:700;}
@@ -331,7 +352,7 @@ h1{
 .paso__num{
   width:2.5rem;
   height:2.5rem;
-  border-radius:50%;
+  border-radius:0;
   background:var(--verde);
   color:var(--blanco);
   font-family:var(--display);
@@ -347,7 +368,7 @@ h1{
 .cta{
   background:var(--verde);
   color:var(--blanco);
-  border-radius:1rem;
+  border-radius:var(--radio);
   padding:2rem 1.5rem;
 }
 .cta h2{color:var(--blanco);font-size:var(--t-cta);margin:0 0 .75rem;}
@@ -412,14 +433,16 @@ h1{
 @media (min-width:40rem){
   .datos{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;border:0;border-radius:0;}
   .datos li{
-    display:block;
+    display:block;                   /* en tarjeta: rótulo arriba, valor abajo */
     padding:1rem 1.125rem;
     border:1px solid rgba(29,35,28,.14);
     border-radius:var(--radio);
   }
   .datos li:last-child{border-bottom:1px solid rgba(29,35,28,.14);}
-  .datos span{font-size:.875rem;margin-top:.3rem;}
-  .logo{height:6rem;}
+  .datos span{font-size:.875rem;margin-bottom:.25rem;}
+  .datos b{text-align:left;}
+  .marca{width:4rem;height:4rem;}
+  .marca img{height:2.75rem;}
   /* ficha como tabla de dos columnas */
   .ficha tr{display:table-row;padding:0;border:0;}
   .ficha th,.ficha td{display:table-cell;padding:.875rem 1.25rem;border-bottom:1px solid rgba(29,35,28,.1);}
@@ -445,7 +468,8 @@ h1{
   }
   .col{padding:0 2.5rem;}
   .portada{padding:3.5rem 0 3.5rem;}
-  .logo{height:7.5rem;}
+  .marca{width:4.5rem;height:4.5rem;}
+  .marca img{height:3.125rem;}
   .bajada{max-width:34ch;}
   .rasgos{grid-template-columns:repeat(2,1fr);gap:1rem;}
   .cta{padding:2.75rem;}
@@ -453,7 +477,20 @@ h1{
 }
 
 @media (min-width:60rem){
-  .planes{grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+  /* Subgrid: las tres tarjetas comparten filas, así "Modalidad comercial" y
+     "Valor del programa" caen a la misma altura aunque las listas tengan
+     distinto largo. */
+  .planes{
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:auto auto 1fr auto;
+    column-gap:1.25rem;
+    row-gap:0;
+  }
+  .plan{display:grid;grid-row:span 4;grid-template-rows:subgrid;}
+  .plan__cuerpo{display:contents;}
+  .plan__cuerpo > h4{padding:1.25rem 1.375rem 0;}
+  .plan__cuerpo > .lista{padding:0 1.375rem;margin-bottom:1.375rem;}
+  .plan__pie{margin:0 1.375rem 1.375rem;}
 }
 
 @media (prefers-reduced-motion:reduce){
