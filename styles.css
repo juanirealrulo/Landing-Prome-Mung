@@ -130,35 +130,40 @@ h1{
 
 /* Tres datos: en tres columnas también en el celular, porque son cortos
    y apilados ocupaban una pantalla entera. */
+/* En el celular los tres datos van en una sola caja, uno por renglón, con la
+   cifra a la izquierda y el rótulo a la derecha: se leen de corrido y ocupan
+   poco alto. A partir de 40rem pasan a tres tarjetas. */
 .datos{
   list-style:none;
   margin:0;
   padding:0;
   display:grid;
-  /* la del medio es más ancha porque "Sep–Feb" no se puede cortar */
-  grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);
-  gap:.5rem;
-}
-.datos li{
   border:1px solid rgba(29,35,28,.14);
   border-radius:var(--radio);
-  padding:.625rem .75rem .75rem;
 }
+.datos li{
+  display:grid;
+  grid-template-columns:6.25rem 1fr;
+  align-items:baseline;
+  column-gap:.75rem;
+  padding:.75rem 1rem;
+  border-bottom:1px solid rgba(29,35,28,.1);
+}
+.datos li:last-child{border-bottom:0;}
 .datos b{
   display:block;
   font-family:var(--display);
   font-weight:800;
-  font-size:clamp(1.0625rem, 5.2vw, 1.25rem);   /* escala para que "Sep–Feb" entre en 320px */
+  font-size:1.375rem;
   line-height:1.1;
   color:var(--verde);
   white-space:nowrap;
 }
 .datos span{
   display:block;
-  font-size:.8125rem;
+  font-size:.9375rem;
   line-height:1.35;
-  color:rgba(29,35,28,.7);
-  margin-top:.3rem;
+  color:rgba(29,35,28,.72);
 }
 
 /* ---------- Secciones ---------- */
@@ -386,10 +391,16 @@ h1{
 
 /* ---------- Pantallas medianas ---------- */
 @media (min-width:40rem){
-  .datos{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
-  .datos li{padding:1rem 1.125rem;}
+  .datos{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;border:0;border-radius:0;}
+  .datos li{
+    display:block;
+    padding:1rem 1.125rem;
+    border:1px solid rgba(29,35,28,.14);
+    border-radius:var(--radio);
+  }
+  .datos li:last-child{border-bottom:1px solid rgba(29,35,28,.14);}
   .datos b{font-size:1.75rem;}
-  .datos span{font-size:.875rem;}
+  .datos span{font-size:.875rem;margin-top:.3rem;}
   .logo{width:8.5rem;}
   /* ficha como tabla de dos columnas */
   .ficha tr{display:table-row;padding:0;border:0;}
@@ -410,8 +421,7 @@ h1{
   .bajada{max-width:34ch;font-size:1.1875rem;}
   h2{font-size:2.25rem;}
   .seccion{padding:4.5rem 0;}
-  .rasgos{grid-template-columns:repeat(3,1fr);gap:1rem;}
-  .rasgo{align-items:start;}
+  .rasgos{grid-template-columns:repeat(2,1fr);gap:1rem;}
   .cta{padding:2.75rem;}
   .cta h2{font-size:2rem;}
   .fab{right:1.75rem;bottom:calc(1.75rem + env(safe-area-inset-bottom));}
