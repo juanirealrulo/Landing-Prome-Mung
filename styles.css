@@ -245,7 +245,7 @@ h1{
 /* ---------- No dejes el lote vacío: ecuación en tres términos ----------
    En el celular los términos se apilan con el operador entre medio; en
    escritorio van en una fila. El resultado se distingue en verde. */
-.lote{margin:0 0 3.5rem;}
+.lote{margin:0;}
 .lote__titulo{font-size:var(--t-sub);margin:0 0 1rem;}
 .ecuacion{display:grid;gap:.5rem;}
 .termino{
@@ -311,6 +311,7 @@ h1{
   background:var(--blanco);
   border-radius:var(--radio);
   overflow:hidden;
+  margin-bottom:3.5rem;
 }
 .ficha th,.ficha td{
   padding:.875rem 1.25rem;
