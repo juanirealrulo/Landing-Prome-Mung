@@ -54,6 +54,23 @@
       <path d="M19.4 5.6l-.7 .7" />
       <path d="M18.7 17.7l.7 .7" />
     </symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24">
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+      <path d="M12 7v5l3 3" />
+    </symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24">
+      <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+      <path d="M16 3v4" />
+      <path d="M8 3v4" />
+      <path d="M4 11h16" />
+      <path d="M11 15h1" />
+      <path d="M12 15v3" />
+    </symbol>
+    <symbol id="i-brote" viewBox="0 0 24 24">
+      <path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3" />
+      <path d="M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3" />
+      <path d="M12 20l0 -10" />
+    </symbol>
   </defs>
 </svg>
 
@@ -68,13 +85,15 @@
       <span class="marca"><img src="img/isotipo-blanco.webp" width="131" height="200" alt="Prome AgroNegocios"></span>
     </div>
 
-    <img class="portada__foto" src="img/granos-mano.webp" width="1130" height="696" alt="Granos de poroto mung en la palma de una mano">
+    <div class="portada__cuerpo">
+      <img class="portada__foto" src="img/granos-mano.webp" width="1130" height="696" alt="Granos de poroto mung en la palma de una mano">
 
-    <ul class="datos">
-      <li><span>Ciclo</span><b>~90 días</b></li>
-      <li><span>Ventana de siembra</span><b>Sep–Feb</b></li>
-      <li><span>Programas</span><b>3</b></li>
-    </ul>
+      <ul class="datos">
+        <li><span>Ciclo</span><b>~90 días</b></li>
+        <li><span>Ventana de siembra</span><b>Sep–Feb</b></li>
+        <li><span>Programas</span><b>3</b></li>
+      </ul>
+    </div>
   </div>
 </header>
 
@@ -105,6 +124,30 @@
           <h3>Maquinaria convencional</h3>
           <p>Siembra y cosecha con equipos convencionales.</p>
         </div>
+      </div>
+
+      <div class="lote">
+        <h3 class="lote__titulo">No dejes el lote vacío</h3>
+        <div class="ecuacion">
+          <div class="termino">
+            <span class="termino__ico"><svg aria-hidden="true" focusable="false"><use href="#i-reloj"></use></svg></span>
+            <h4>Ciclo corto</h4>
+            <p>Ocupa el lote por poco tiempo.</p>
+          </div>
+          <span class="operador" aria-hidden="true">+</span>
+          <div class="termino">
+            <span class="termino__ico"><svg aria-hidden="true" focusable="false"><use href="#i-calendario"></use></svg></span>
+            <h4>Ventana amplia</h4>
+            <p>Admite siembras tempranas y tardías.</p>
+          </div>
+          <span class="operador" aria-hidden="true">=</span>
+          <div class="termino termino--resultado">
+            <span class="termino__ico"><svg aria-hidden="true" focusable="false"><use href="#i-brote"></use></svg></span>
+            <h4>Lote disponible en producción</h4>
+            <p>El mung se incorpora a la rotación.</p>
+          </div>
+        </div>
+        <p class="lote__nota">Cada caso se evalúa según zona, fecha y condición del perfil.</p>
       </div>
 
       <h3 class="ficha__titulo">Ficha técnica orientativa</h3>
