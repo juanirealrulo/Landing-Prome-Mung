@@ -577,11 +577,11 @@ h1{
 }
 
 @media (min-width:60rem){
-  /* Subgrid: las tres tarjetas comparten filas, así "Modalidad comercial" y
+  /* Subgrid: las dos tarjetas comparten filas, así "Modalidad comercial" y
      "Valor del programa" caen a la misma altura aunque las listas tengan
      distinto largo. */
   .planes{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
     grid-template-rows:auto auto 1fr auto;
     column-gap:1.25rem;
     row-gap:0;
